@@ -14,30 +14,22 @@ export default function Hero() {
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
-  // ── Three depth planes ──────────────────────────────────────────
-  // Plane 1 — background initials (fastest, furthest back)
   const bgY     = useTransform(scrollYProgress, [0, 1],    [0, 140])
   const bgScale = useTransform(scrollYProgress, [0, 0.6],  [1, 1.08])
 
-  // Plane 2 — left text column (mid speed)
   const leftY       = useTransform(scrollYProgress, [0, 0.7],  [0, 85])
   const leftOpacity = useTransform(scrollYProgress, [0, 0.42], [1, 0])
 
-  // Plane 3 — photo card (slowest, closest to viewer)
   const rightY       = useTransform(scrollYProgress, [0, 0.7],  [0, 38])
   const rightOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
   const rightScale   = useTransform(scrollYProgress, [0, 0.55], [1, 1.05])
 
-  // Floating cards vanish first — they're the shallowest layer
   const floatOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0])
-
-  // Scroll cue disappears immediately
   const cueOpacity   = useTransform(scrollYProgress, [0, 0.12], [1, 0])
 
   return (
     <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* ── Background ── */}
       <div className="absolute inset-0 bg-navy-950">
         <div className="absolute inset-0" style={{
           background: 'radial-gradient(ellipse 80% 60% at 75% 15%, rgba(45,212,191,0.09) 0%, transparent 65%)',
@@ -47,7 +39,7 @@ export default function Hero() {
         }} />
       </div>
 
-      {/* ── Plane 1: Background initials — moves fastest ── */}
+      {/* Background initials */}
       <motion.div
         initial={reduced ? false : { opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -67,7 +59,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-28 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-14 lg:gap-20 items-center">
 
-          {/* ── Plane 2: Left text — mid speed ── */}
+          {/* Left text column */}
           <motion.div
             style={reduced ? {} : { y: leftY, opacity: leftOpacity }}
             className="space-y-8"
@@ -133,7 +125,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ── Plane 3: Photo card — slowest, zooms slightly ── */}
+          {/* Photo card */}
           <motion.div
             style={reduced ? {} : { y: rightY, opacity: rightOpacity, scale: rightScale }}
             className="relative w-64 lg:w-72 xl:w-80 mx-auto"
@@ -201,7 +193,7 @@ export default function Hero() {
               {/* Floating metric cards — fade out first on scroll */}
               <motion.div
                 style={reduced ? {} : { opacity: floatOpacity }}
-                className="contents"
+                className="absolute inset-0 pointer-events-none"
               >
                 {floatingCards.map(({ icon: Icon, value, label, pos, floatY, delay: d, enterX }) => (
                   <motion.div
@@ -240,12 +232,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Scroll cue — first to disappear ── */}
       <motion.div
-        initial={reduced ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
         style={reduced ? {} : { opacity: cueOpacity }}
-        transition={{ delay: 2.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
         <span className="font-sans text-[10px] tracking-[0.25em] text-white/25 uppercase">Scroll</span>
