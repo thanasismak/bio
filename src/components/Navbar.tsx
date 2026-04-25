@@ -27,18 +27,17 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-navy-900/90 backdrop-blur-xl border-b border-white/[0.06] py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-navy-900/90 backdrop-blur-xl border-b border-white/[0.06] py-4'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-        <a href="#home" className="flex flex-col leading-none group">
-          <span className="font-display text-xl font-medium text-white group-hover:text-teal-400 transition-colors duration-300">
-            Dr. Kyriakos Bekas
-          </span>
-          <span className="text-[10px] font-sans font-medium tracking-[0.22em] text-white/40 uppercase mt-0.5">
-            M.D. · M.Sc. · FIFA
-          </span>
+        <a href="#home" className="block group opacity-90 hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="/brand-logo-transparent.png"
+            alt="Dr. Kyriakos Bekas"
+            className="h-16 w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">

@@ -2,5 +2,10 @@ node_modules/
 dist/
 assets/
 public/hero.jpeg
+public/brand-logo.png
+public/brand-logo-transparent.png
+public/biokliniki.jpg
+public/iaso.jpg
+public/ygeia.jpg
 *.local
 .DS_Store
