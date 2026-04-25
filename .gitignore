@@ -9,3 +9,4 @@ public/iaso.jpg
 public/ygeia.jpg
 *.local
 .DS_Store
+.claude/
