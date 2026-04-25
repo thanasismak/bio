@@ -1,11 +1,11 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
-import { Award, Star, Users, ChevronDown } from 'lucide-react'
+import { Award, Trophy, Users, ChevronDown } from 'lucide-react'
 
 const floatingCards = [
-  { icon: Award, value: '20+', label: 'Years Experience', pos: '-left-12 top-10', floatY: -7, delay: 0 },
-  { icon: Star, value: '4.9★', label: 'Patient Rating', pos: '-right-8 top-1/3', floatY: -9, delay: 0.3 },
-  { icon: Users, value: '3,200+', label: 'Patients Helped', pos: '-left-10 bottom-20', floatY: -6, delay: 0.6 },
+  { icon: Award, value: '10+', label: 'Years Experience', pos: '-left-12 top-10', floatY: -7, delay: 0 },
+  { icon: Trophy, value: 'FIFA', label: 'Certified', pos: '-right-8 top-1/3', floatY: -9, delay: 0.3 },
+  { icon: Users, value: '4.9★', label: 'Patient Rating', pos: '-left-10 bottom-20', floatY: -6, delay: 0.6 },
 ]
 
 export default function Hero() {
@@ -28,13 +28,6 @@ export default function Hero() {
           className="absolute inset-0"
           style={{ background: 'radial-gradient(ellipse 50% 50% at 15% 85%, rgba(200,169,110,0.05) 0%, transparent 55%)' }}
         />
-        <div
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        />
       </div>
 
       {/* Giant background initials */}
@@ -46,7 +39,7 @@ export default function Hero() {
           className="font-display font-light text-white leading-none"
           style={{ fontSize: 'clamp(12rem, 30vw, 38rem)', opacity: 0.018, letterSpacing: '-0.04em' }}
         >
-          AC
+          KB
         </span>
       </motion.div>
 
@@ -67,7 +60,7 @@ export default function Hero() {
             >
               <span className="h-px w-10 bg-teal-400" />
               <span className="text-teal-400 font-sans text-xs font-semibold tracking-[0.22em] uppercase">
-                Consultant Cardiologist
+                Orthopedic Surgeon
               </span>
             </motion.div>
 
@@ -79,9 +72,9 @@ export default function Hero() {
                 className="font-display font-light leading-[0.9] tracking-tight text-white"
                 style={{ fontSize: 'clamp(3.2rem, 8vw, 7.5rem)' }}
               >
-                <em>Dr. Alexander</em>
+                <em>Dr. Kyriakos</em>
                 <br />
-                <span className="text-white/85">Chen</span>
+                <span className="text-white/85">Bekas</span>
               </motion.h1>
             </div>
 
@@ -91,8 +84,8 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="font-sans text-white/50 text-lg font-light leading-relaxed max-w-[42ch]"
             >
-              Precision cardiovascular care at the intersection of advanced science
-              and genuine compassion. Twenty years advancing cardiac medicine.
+              Precision orthopaedic surgery for sports injuries and joint reconstruction.
+              FIFA-certified. Serving elite athletes and everyday patients alike.
             </motion.p>
 
             <motion.div
@@ -103,7 +96,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="group relative px-8 py-4 bg-teal-400 text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full overflow-hidden transition-colors duration-300 hover:bg-teal-300"
+                className="px-8 py-4 bg-teal-400 text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-300"
               >
                 Book a Consultation
               </a>
@@ -116,7 +109,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: profile card */}
+          {/* Right: profile card with real photo */}
           <motion.div
             initial={reduced ? false : { opacity: 0, scale: 0.92, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -126,30 +119,23 @@ export default function Hero() {
             {/* Profile card */}
             <div
               className="relative rounded-3xl overflow-hidden border border-white/[0.08]"
-              style={{
-                aspectRatio: '3/4',
-                background: 'linear-gradient(160deg, #141C35 0%, #0F1629 50%, #1E2A4A 100%)',
-              }}
+              style={{ aspectRatio: '3/4' }}
             >
+              <img
+                src="/hero.jpeg"
+                alt="Dr. Kyriakos Bekas"
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
+              {/* Gradient overlay for badge readability */}
               <div
                 className="absolute inset-0"
-                style={{ background: 'radial-gradient(circle at 60% 30%, rgba(45,212,191,0.07) 0%, transparent 60%)' }}
+                style={{ background: 'linear-gradient(to top, rgba(8,13,26,0.88) 0%, rgba(8,13,26,0.08) 45%, transparent 70%)' }}
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                <div className="w-28 h-28 rounded-full border border-teal-400/25 flex items-center justify-center"
-                  style={{ background: 'radial-gradient(circle, rgba(45,212,191,0.1) 0%, rgba(45,212,191,0.03) 100%)' }}
-                >
-                  <span className="font-display text-5xl font-light italic text-teal-400/70">AC</span>
-                </div>
-                <div className="text-center">
-                  <p className="font-display text-lg font-medium text-white/80">Dr. Alexander Chen</p>
-                  <p className="font-sans text-[11px] tracking-[0.18em] text-white/35 uppercase mt-1">M.D. · F.A.C.C.</p>
-                </div>
+              {/* Credential badge */}
+              <div className="absolute bottom-0 left-0 right-0 px-5 pb-5 text-center">
+                <p className="font-display text-lg font-medium text-white italic">Dr. Kyriakos Bekas</p>
+                <p className="font-sans text-[10px] tracking-[0.2em] text-white/45 uppercase mt-1">M.D. · M.Sc. · FIFA</p>
               </div>
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to top, rgba(8,13,26,0.7) 0%, transparent 50%)' }}
-              />
             </div>
 
             {/* Floating metric cards */}

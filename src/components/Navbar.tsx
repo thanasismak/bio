@@ -34,10 +34,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
         <a href="#home" className="flex flex-col leading-none group">
           <span className="font-display text-xl font-medium text-white group-hover:text-teal-400 transition-colors duration-300">
-            Dr. Alexander Chen
+            Dr. Kyriakos Bekas
           </span>
           <span className="text-[10px] font-sans font-medium tracking-[0.22em] text-white/40 uppercase mt-0.5">
-            M.D. · F.A.C.C.
+            M.D. · M.Sc. · FIFA
           </span>
         </a>
 

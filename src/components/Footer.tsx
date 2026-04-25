@@ -3,12 +3,12 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 
 const navLinks = ['About', 'Expertise', 'Credentials', 'Research', 'Testimonials', 'Contact']
 const services = [
-  'Cardiac Imaging',
-  'Heart Failure Care',
-  'Arrhythmia Treatment',
-  'Preventive Cardiology',
-  'Interventional Procedures',
-  'Emergency Consultation',
+  'Sports Injuries',
+  'Arthroscopic Surgery',
+  'Hip & Knee Arthroplasty',
+  'Biological Therapies',
+  'Trauma & Fracture Care',
+  'FIFA Sports Medicine',
 ]
 
 export default function Footer() {
@@ -28,11 +28,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-5 lg:col-span-1">
             <div>
-              <p className="font-display text-xl font-medium text-white">Dr. Alexander Chen</p>
-              <p className="font-sans text-[11px] tracking-[0.2em] text-white/35 uppercase mt-1">M.D. · F.A.C.C.</p>
+              <p className="font-display text-xl font-medium text-white">Dr. Kyriakos Bekas</p>
+              <p className="font-sans text-[11px] tracking-[0.2em] text-white/35 uppercase mt-1">M.D. · M.Sc. · FIFA</p>
             </div>
             <p className="font-sans text-sm text-white/40 leading-relaxed max-w-xs">
-              Consultant Cardiologist. National Heart Institute, London. Academic affiliate, Stanford University School of Medicine.
+              Orthopedic Surgeon. Registrar at 401 ΓΣΝΑ. Private practice at Bioclinic Athens.
+              ESSKA & AO Foundation member.
             </p>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-teal-400/70 animate-pulse" />
@@ -74,10 +75,10 @@ export default function Footer() {
             <p className="font-sans text-xs font-semibold tracking-[0.18em] text-white/40 uppercase mb-5">Contact</p>
             <ul className="space-y-4">
               {[
-                { icon: MapPin, text: '12 Harley Street, London W1G 9PQ' },
-                { icon: Phone, text: '+44 (0)20 7946 0800' },
-                { icon: Mail, text: 'appointments@drachen.co.uk' },
-                { icon: Clock, text: 'Mon–Fri: 8:00 – 18:00' },
+                { icon: MapPin, text: 'Bioclinic Athens, Μιχαλακοπούλου 15, Athens' },
+                { icon: Phone, text: '+30 210 000 0000' },
+                { icon: Mail, text: 'info@drbekas.gr' },
+                { icon: Clock, text: 'Mon–Fri: 09:00 – 18:00' },
               ].map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-3">
                   <Icon className="w-4 h-4 text-teal-400/60 mt-0.5 shrink-0" strokeWidth={1.5} />
@@ -91,7 +92,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/[0.05] pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-sans text-xs text-white/25">
-            © {year} Dr. Alexander Chen. All rights reserved.
+            © {year} Dr. Kyriakos Bekas. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {['Privacy Policy', 'Terms of Use', 'Cookie Policy', 'Accessibility'].map((link) => (

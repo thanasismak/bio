@@ -6,21 +6,14 @@ export default function CallToAction() {
 
   return (
     <section id="contact" className="relative py-28 lg:py-40 overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-navy-900">
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(45,212,191,0.07) 0%, transparent 70%)',
-          }}
+          style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(45,212,191,0.07) 0%, transparent 70%)' }}
         />
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 40% 40% at 80% 20%, rgba(200,169,110,0.05) 0%, transparent 60%)',
-          }}
+          style={{ background: 'radial-gradient(ellipse 40% 40% at 80% 20%, rgba(200,169,110,0.05) 0%, transparent 60%)' }}
         />
       </div>
 
@@ -45,7 +38,7 @@ export default function CallToAction() {
           className="font-display text-[clamp(2.8rem,6vw,5.5rem)] font-light leading-[1.0] text-white mb-8"
         >
           Ready to begin your <br />
-          <em className="text-teal-300">health journey?</em>
+          <em className="text-teal-300">recovery journey?</em>
         </motion.h2>
 
         <motion.p
@@ -55,8 +48,8 @@ export default function CallToAction() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="font-sans text-white/45 text-lg font-light leading-relaxed max-w-2xl mx-auto mb-12"
         >
-          A first consultation is the beginning of a thorough, personalised assessment of your
-          cardiovascular health. New and returning patients are welcome.
+          A first consultation begins with a thorough clinical assessment of your condition —
+          followed by a clear, personalised plan. New and returning patients welcome.
         </motion.p>
 
         <motion.div
@@ -87,10 +80,10 @@ export default function CallToAction() {
           transition={{ duration: 0.6, delay: 0.55 }}
           className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-white/30"
         >
-          {['No referral required', 'Same-week appointments available', 'Private & NHS patients welcome'].map((item, i) => (
+          {['No referral required', 'Same-week appointments available', 'Private & ΕΟΠΥΥ patients welcome'].map((label, i) => (
             <span key={i} className="flex items-center gap-2 font-sans text-xs">
               <span className="w-1 h-1 rounded-full bg-teal-400/50" />
-              {item}
+              {label}
             </span>
           ))}
         </motion.div>

@@ -10,22 +10,22 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "Dr. Chen's expertise is matched only by his patience in explaining every detail of my condition. For the first time in years, I feel genuinely understood — and genuinely well.",
-    name: 'Sarah M.',
-    condition: 'Coronary Artery Disease',
-    years: 'Patient since 2019',
+    quote: "After my ACL tear, I was told by others I'd be out for a year minimum. Dr. Bekas got me back on the pitch in seven months — fully, properly back. The precision of the procedure and the personalised rehab protocol made all the difference.",
+    name: 'Andreas P.',
+    condition: 'ACL Reconstruction',
+    years: 'Patient since 2023',
   },
   {
-    quote: "After three years of inconclusive tests elsewhere, Dr. Chen identified my arrhythmia within two consultations. The precision and the calm confidence he brings to every appointment are extraordinary.",
-    name: 'Robert K.',
-    condition: 'Atrial Fibrillation',
-    years: 'Patient since 2021',
+    quote: "I had been managing chronic shoulder pain for three years before meeting Dr. Bekas. He identified the problem immediately, performed the arthroscopy, and within four months I was back to training overhead. Outstanding care.",
+    name: 'Maria K.',
+    condition: 'Shoulder Arthroscopy',
+    years: 'Patient since 2022',
   },
   {
-    quote: "The preventive programme Dr. Chen designed for me completely changed my relationship with my health. I am healthier now, at 58, than I was at 45. That is not a small thing.",
-    name: 'Linda T.',
-    condition: 'Preventive Cardiology',
-    years: 'Patient since 2017',
+    quote: "My hip replacement at 62 gave me my life back. Dr. Bekas explained every step, answered every question, and the recovery was smoother than I could have imagined. I am walking without pain for the first time in years.",
+    name: 'Nikos T.',
+    condition: 'Total Hip Arthroplasty',
+    years: 'Patient since 2024',
   },
 ]
 
@@ -63,7 +63,7 @@ export default function Testimonials() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.05] text-white max-w-xl"
           >
-            Outcomes measured in <em>lives changed</em>
+            Outcomes measured in <em>lives restored</em>
           </motion.h2>
         </div>
 
@@ -80,7 +80,6 @@ export default function Testimonials() {
               variants={reduced ? undefined : item}
               className="relative p-8 rounded-2xl border border-white/[0.07] bg-navy-800/30 flex flex-col gap-6 group hover:border-white/[0.12] transition-colors duration-300"
             >
-              {/* Gold quote mark */}
               <span
                 className="font-display text-8xl font-light leading-none -mb-4 -mt-2 select-none"
                 style={{ color: 'rgba(200,169,110,0.25)' }}
@@ -88,11 +87,9 @@ export default function Testimonials() {
               >
                 "
               </span>
-
               <p className="font-sans text-sm text-white/55 leading-relaxed flex-1 italic">
                 {quote}
               </p>
-
               <div className="border-t border-white/[0.06] pt-5 flex items-end justify-between">
                 <div>
                   <p className="font-display text-base font-medium text-white">{name}</p>

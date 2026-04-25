@@ -5,10 +5,9 @@ interface MetricProps {
   to: number
   decimals?: number
   suffix?: string
-  prefix?: string
 }
 
-function Counter({ to, decimals = 0, suffix = '', prefix = '' }: MetricProps) {
+function Counter({ to, decimals = 0, suffix = '' }: MetricProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   const reduced = useReducedMotion()
@@ -29,18 +28,13 @@ function Counter({ to, decimals = 0, suffix = '', prefix = '' }: MetricProps) {
   }, [inView, to, reduced])
 
   const display = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toLocaleString()
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {prefix}{display}{suffix}
-    </span>
-  )
+  return <span ref={ref} className="tabular-nums">{display}{suffix}</span>
 }
 
 const stats = [
-  { value: 20, suffix: '+', label: 'Years of Practice', sublabel: 'Cardiovascular Medicine' },
-  { value: 3200, suffix: '+', label: 'Patients Treated', sublabel: 'Across Four Continents' },
-  { value: 47, suffix: '', label: 'Publications', sublabel: 'Peer-Reviewed Journals' },
+  { value: 10, suffix: '+', label: 'Years of Practice', sublabel: 'Orthopedic Surgery' },
+  { value: 6, suffix: '+', label: 'Publications', sublabel: 'Peer-Reviewed Journals' },
+  { value: 15, suffix: '+', label: 'International Courses', sublabel: 'Fellowships & Training' },
   { value: 4.9, suffix: '', decimals: 1, label: 'Patient Rating', sublabel: 'Out of 5.0 Stars' },
 ]
 

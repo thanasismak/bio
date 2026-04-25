@@ -1,0 +1,6 @@
+node_modules/
+dist/
+assets/
+public/hero.jpeg
+*.local
+.DS_Store

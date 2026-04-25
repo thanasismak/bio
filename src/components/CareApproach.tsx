@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { UserCheck, ScanSearch, Leaf, Sliders } from 'lucide-react'
+import { UserCheck, ScanSearch, Dumbbell, Leaf } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 interface Pillar {
@@ -13,26 +13,26 @@ const pillars: Pillar[] = [
   {
     num: '01',
     icon: UserCheck,
-    title: 'Patient-First Care',
-    description: 'Every decision begins with the patient. Appointments are unhurried, conversations are thorough, and care is shaped around the individual — not the condition.',
+    title: 'Patient-Centred Care',
+    description: 'Each patient receives a personalised treatment plan shaped around their specific condition, lifestyle, and activity goals — not a one-size-fits-all protocol.',
   },
   {
     num: '02',
     icon: ScanSearch,
     title: 'Diagnostic Precision',
-    description: 'Cutting-edge imaging, advanced haemodynamic assessment, and a methodical diagnostic process to reach answers faster and with greater accuracy.',
+    description: 'Advanced imaging, arthroscopic assessment, and a rigorous clinical evaluation process ensure an accurate diagnosis before any intervention is considered.',
   },
   {
     num: '03',
-    icon: Leaf,
-    title: 'Preventive Focus',
-    description: 'The most impactful intervention happens before a cardiac event. Risk stratification, lifestyle medicine, and proactive management are central to this practice.',
+    icon: Dumbbell,
+    title: 'Athlete-Focused Protocols',
+    description: 'Dedicated surgical and rehabilitation pathways for athletes of all levels — from recreational runners to professional competitors — prioritising safe, full return to sport.',
   },
   {
     num: '04',
-    icon: Sliders,
-    title: 'Personalised Treatment',
-    description: 'No two hearts are identical. Treatment plans are built from evidence, tailored to the individual, and adjusted continuously as the patient evolves.',
+    icon: Leaf,
+    title: 'Regenerative Innovation',
+    description: 'Cutting-edge biological therapies — PRP, stem cell augmentation, and advanced materials — are integrated where evidence supports them, accelerating recovery outcomes.',
   },
 ]
 
@@ -60,7 +60,7 @@ export default function CareApproach() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.05] text-white max-w-xl"
           >
-            Medicine guided by <em>principles</em>, not protocols
+            Surgery guided by <em>principles</em>, not protocols
           </motion.h2>
         </div>
 

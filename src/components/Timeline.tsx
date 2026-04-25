@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { GraduationCap, Building2, Award, BookOpen, Users, Microscope } from 'lucide-react'
+import { GraduationCap, Building2, Trophy, BookOpen, Award, Microscope } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 interface TimelineItem {
@@ -13,51 +13,51 @@ interface TimelineItem {
 
 const items: TimelineItem[] = [
   {
-    year: '1998',
+    year: '2015',
     icon: GraduationCap,
     title: 'Doctor of Medicine',
-    institution: 'Harvard Medical School',
-    description: 'Graduated with distinction. Thesis on myocardial perfusion imaging in silent ischemia.',
+    institution: 'Military College of Officers Medical School, Athens',
+    description: "Graduated from the Medical School of the Hellenic Army's officer academy, establishing a foundation of discipline and clinical excellence.",
     side: 'left',
   },
   {
-    year: '2002',
+    year: '2015–2026',
     icon: Building2,
-    title: 'Residency — Internal Medicine',
-    institution: 'Johns Hopkins Hospital',
-    description: 'Chief Resident in final year. Clinical focus on complex cardiovascular presentations.',
+    title: 'Orthopaedic & Traumatology Residency',
+    institution: '401 ΓΣΝΑ · Γ. Γεννηματάς · Παίδων "Π. & Α. Κυριακού"',
+    description: "Full specialist training in orthopaedics and traumatology across three of Athens' leading hospitals, covering the full spectrum of surgical and conservative care.",
     side: 'right',
   },
   {
-    year: '2005',
-    icon: Award,
-    title: 'Fellowship — Cardiology',
-    institution: 'Cleveland Clinic',
-    description: 'Subspecialty training in interventional cardiology and advanced cardiac imaging.',
+    year: '2019',
+    icon: Trophy,
+    title: 'FIFA Diploma in Football Medicine',
+    institution: 'FIFA Medical Network',
+    description: 'Certified physician of the FIFA Football Medicine programme — one of the premier international qualifications in sports medicine for athletes of all levels.',
     side: 'left',
   },
   {
-    year: '2007',
-    icon: Users,
-    title: 'Fellow, American College of Cardiology',
-    institution: 'F.A.C.C. Designation',
-    description: 'Awarded Fellowship recognition for clinical excellence and contributions to cardiovascular research.',
-    side: 'right',
-  },
-  {
-    year: '2010',
+    year: '2022',
     icon: BookOpen,
-    title: 'Associate Professor of Medicine',
-    institution: 'Stanford University School of Medicine',
-    description: 'Academic appointment with focus on resident education and cardiovascular outcomes research.',
+    title: 'MSc Metabolic Bone Diseases',
+    institution: 'National & Kapodistrian University of Athens',
+    description: 'Postgraduate research degree focusing on bone metabolism, osteoporosis, and the role of bone mineral density in orthopaedic surgical outcomes.',
+    side: 'right',
+  },
+  {
+    year: '2025',
+    icon: Award,
+    title: 'ON Foundation Clinical Fellowship',
+    institution: 'Hirslanden SportClinic, Zürich',
+    description: "Competitive international fellowship at one of Europe's foremost sports orthopaedic centres, advancing skills in arthroscopic and reconstructive knee and shoulder surgery.",
     side: 'left',
   },
   {
-    year: '2023',
+    year: '2026',
     icon: Microscope,
-    title: 'Lead Author — NEJM Publication',
-    institution: 'New England Journal of Medicine',
-    description: '"Cardiovascular Risk Assessment in Asymptomatic Populations: A 10-Year Prospective Study."',
+    title: 'Registrar — Orthopaedic Surgery',
+    institution: '401 ΓΣΝΑ · Bioclinic Athens (Private Practice)',
+    description: 'Currently serving as Orthopaedic Registrar at 401 ΓΣΝΑ while conducting a private practice at Bioclinic Athens for sports injuries, arthroplasty, and biological therapies.',
     side: 'right',
   },
 ]
@@ -93,7 +93,6 @@ export default function Timeline() {
         {/* Desktop: alternating timeline */}
         <div className="hidden lg:block relative">
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.07] -translate-x-1/2" />
-
           <div className="space-y-14">
             {items.map(({ year, icon: Icon, title, institution, description, side }, i) => (
               <motion.div
@@ -102,11 +101,9 @@ export default function Timeline() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.8, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className={`relative grid grid-cols-2 gap-12 ${side === 'right' ? 'direction-rtl' : ''}`}
+                className="relative grid grid-cols-2 gap-12"
               >
-                {/* Dot on the line */}
                 <div className="absolute left-1/2 top-6 w-3 h-3 rounded-full bg-teal-400/60 border-2 border-teal-400/30 -translate-x-1/2 z-10" />
-
                 {side === 'left' ? (
                   <>
                     <div className="text-right pr-10">
@@ -163,14 +160,10 @@ function TimelineCard({
 }) {
   return (
     <div className={`space-y-3 ${align === 'right' ? 'items-end flex flex-col' : ''}`}>
-      <span
-        className="inline-block font-display text-3xl font-light text-gold-400 leading-none"
-      >
+      <span className="inline-block font-display text-3xl font-light text-gold-400 leading-none">
         {year}
       </span>
-      <div
-        className={`p-5 rounded-2xl border border-white/[0.07] bg-navy-800/40 max-w-sm ${align === 'right' ? 'text-right' : ''}`}
-      >
+      <div className={`p-5 rounded-2xl border border-white/[0.07] bg-navy-800/40 max-w-sm ${align === 'right' ? 'text-right' : ''}`}>
         <div className={`flex items-center gap-3 mb-3 ${align === 'right' ? 'flex-row-reverse' : ''}`}>
           <div className="w-8 h-8 rounded-lg bg-teal-400/[0.1] flex items-center justify-center shrink-0">
             <Icon className="w-4 h-4 text-teal-400" strokeWidth={1.5} />

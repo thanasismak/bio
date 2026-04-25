@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { Heart, Activity, Stethoscope, HeartPulse, Zap, Shield } from 'lucide-react'
+import { Activity, ScanSearch, Shield, Leaf, Zap, Trophy } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 interface Service {
@@ -10,34 +10,34 @@ interface Service {
 
 const services: Service[] = [
   {
-    icon: Heart,
-    title: 'Coronary Artery Disease',
-    description: 'Advanced diagnosis and management of coronary artery disease, from lifestyle intervention to complex interventional procedures.',
-  },
-  {
     icon: Activity,
-    title: 'Cardiac Imaging',
-    description: 'Comprehensive cardiac imaging including echocardiography, CT angiography, and nuclear cardiology for precise diagnosis.',
+    title: 'Sports Injuries',
+    description: "Comprehensive management of musculoskeletal sports injuries — from acute trauma to chronic overuse conditions — tailored to each patient's activity level and goals.",
   },
   {
-    icon: Stethoscope,
-    title: 'Interventional Cardiology',
-    description: 'Minimally invasive procedures including angioplasty, stent placement, and structural heart interventions.',
-  },
-  {
-    icon: HeartPulse,
-    title: 'Heart Failure Management',
-    description: 'Multidisciplinary care for heart failure patients, optimising medical therapy and advanced device management.',
-  },
-  {
-    icon: Zap,
-    title: 'Arrhythmia Treatment',
-    description: 'Diagnosis and treatment of heart rhythm disorders, including ablation procedures and device implantation.',
+    icon: ScanSearch,
+    title: 'Arthroscopic Surgery',
+    description: 'Minimally invasive arthroscopic procedures of the shoulder and knee, including ACL reconstruction, rotator cuff repair, and meniscal surgery.',
   },
   {
     icon: Shield,
-    title: 'Preventive Cardiology',
-    description: 'Risk stratification and personalised prevention programmes to reduce cardiovascular events before they occur.',
+    title: 'Hip & Knee Arthroplasty',
+    description: 'Total and partial joint replacement surgery for hip and knee arthritis, using the latest implant technologies and rapid recovery protocols.',
+  },
+  {
+    icon: Leaf,
+    title: 'Biological Therapies',
+    description: 'Advanced regenerative treatments — PRP, stem cell therapy, and biological augmentation — integrated into personalised recovery plans.',
+  },
+  {
+    icon: Zap,
+    title: 'Trauma & Fracture Care',
+    description: 'Surgical and non-surgical management of acute fractures and complex orthopaedic trauma, from simple breaks to multi-fragment injuries.',
+  },
+  {
+    icon: Trophy,
+    title: 'FIFA Sports Medicine',
+    description: 'FIFA-certified sports medicine care for athletes of all levels — injury prevention, performance assessment, and return-to-sport protocols.',
   },
 ]
 
@@ -75,7 +75,7 @@ export default function Expertise() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.05] text-white max-w-2xl"
           >
-            Specialised care for <em>every dimension</em> of cardiac health
+            Specialised care for <em>every dimension</em> of orthopaedic health
           </motion.h2>
         </div>
 
