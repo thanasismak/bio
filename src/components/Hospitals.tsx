@@ -1,20 +1,21 @@
 import { motion, useReducedMotion } from 'motion/react'
+import { assetUrl } from '../utils/assets'
 
 const hospitals = [
   {
-    src: '/biokliniki.jpg',
+    src: assetUrl('/biokliniki.jpg'),
     alt: 'Bioclinic Athens',
     name: 'Bioclinic Athens',
     description: 'Private practice & outpatient consultations',
   },
   {
-    src: '/iaso.jpg',
+    src: assetUrl('/iaso.jpg'),
     alt: 'ΙΑΣΩ Γενική Κλινική',
     name: 'ΙΑΣΩ General Clinic',
     description: 'Surgical procedures & inpatient care',
   },
   {
-    src: '/ygeia.jpg',
+    src: assetUrl('/ygeia.jpg'),
     alt: 'Υγεία',
     name: 'Υγεία Hospital',
     description: 'Orthopaedic surgery & trauma unit',

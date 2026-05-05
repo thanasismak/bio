@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { CheckCircle } from 'lucide-react'
+import { assetUrl } from '../utils/assets'
 
 const credentials = [
   'M.D., Military College of Officers Medical School, Athens (2015)',
@@ -29,7 +30,7 @@ export default function About() {
               style={{ aspectRatio: '4/5' }}
             >
               <img
-                src="/hero.jpeg"
+                src={assetUrl('/hero.jpeg')}
                 alt="Dr. Kyriakos Bekas"
                 className="absolute inset-0 w-full h-full object-cover object-top"
               />

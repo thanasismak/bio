@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import { Award, Trophy, Users, ChevronDown } from 'lucide-react'
+import { assetUrl } from '../utils/assets'
 
 const floatingCards = [
   { icon: Award,  value: '10+',  label: 'Years Experience', pos: '-left-12 top-10',    floatY: -7, delay: 0,   enterX: -20 },
@@ -166,7 +167,7 @@ export default function Hero() {
                   className="absolute inset-0"
                 >
                   <img
-                    src="/hero.jpeg"
+                    src={assetUrl('/hero.jpeg')}
                     alt="Dr. Kyriakos Bekas"
                     className="w-full h-full object-cover object-top"
                   />
