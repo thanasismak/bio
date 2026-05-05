@@ -3,9 +3,3 @@ node_modules/
 *.local
 .DS_Store
 .claude/
-
-# Built assets — images served from Cloudflare R2, not committed
-docs/brand/
-docs/hospitals/
-docs/profile/
-docs/societies/

@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
         <a href="#home" className="block group opacity-90 hover:opacity-100 transition-opacity duration-300">
           <img
-            src={assetUrl('/brand/brand-logo-transparent.png')}
+            src={assetUrl('/brand/logo-vector.png')}
             alt="Dr. Kyriakos Bekas"
             className="h-16 w-auto object-contain"
           />
