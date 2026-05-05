@@ -3,19 +3,19 @@ import { assetUrl } from '../utils/assets'
 
 const hospitals = [
   {
-    src: assetUrl('/biokliniki.jpg'),
+    src: assetUrl('/hospitals/biokliniki.jpg'),
     alt: 'Bioclinic Athens',
     name: 'Bioclinic Athens',
     description: 'Private practice & outpatient consultations',
   },
   {
-    src: assetUrl('/iaso.jpg'),
+    src: assetUrl('/hospitals/iaso.jpg'),
     alt: 'ΙΑΣΩ Γενική Κλινική',
     name: 'ΙΑΣΩ General Clinic',
     description: 'Surgical procedures & inpatient care',
   },
   {
-    src: assetUrl('/ygeia.jpg'),
+    src: assetUrl('/hospitals/ygeia.jpg'),
     alt: 'Υγεία',
     name: 'Υγεία Hospital',
     description: 'Orthopaedic surgery & trauma unit',

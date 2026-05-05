@@ -30,7 +30,7 @@ export default function About() {
               style={{ aspectRatio: '4/5' }}
             >
               <img
-                src={assetUrl('/hero.jpeg')}
+                src={assetUrl('/profile/hero.jpeg')}
                 alt="Dr. Kyriakos Bekas"
                 className="absolute inset-0 w-full h-full object-cover object-top"
               />

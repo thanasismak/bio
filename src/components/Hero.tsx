@@ -167,7 +167,7 @@ export default function Hero() {
                   className="absolute inset-0"
                 >
                   <img
-                    src={assetUrl('/hero.jpeg')}
+                    src={assetUrl('/profile/hero.jpeg')}
                     alt="Dr. Kyriakos Bekas"
                     className="w-full h-full object-cover object-top"
                   />
