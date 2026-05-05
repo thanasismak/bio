@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   base: '/bio/',
+  build: {
+    outDir: 'docs',
+  },
   plugins: [
     tailwindcss(),
     react(),
