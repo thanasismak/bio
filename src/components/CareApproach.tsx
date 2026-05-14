@@ -40,7 +40,7 @@ export default function CareApproach() {
   const reduced = useReducedMotion()
 
   return (
-    <section className="bg-navy-950 py-24 lg:py-36 overflow-hidden">
+    <section className="bg-surface py-24 lg:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 lg:mb-20">
           <motion.div
@@ -58,7 +58,7 @@ export default function CareApproach() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.05] text-white max-w-xl"
+            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.05] text-navy-950 max-w-xl"
           >
             Surgery guided by <em>principles</em>, not protocols
           </motion.h2>

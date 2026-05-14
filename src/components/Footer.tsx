@@ -16,7 +16,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-navy-950 border-t border-white/[0.06]">
+    <footer className="bg-navy-900 border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-8">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 24 }}

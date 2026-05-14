@@ -36,7 +36,7 @@ export default function Hospitals() {
   const reduced = useReducedMotion()
 
   return (
-    <section className="bg-navy-950 py-20 lg:py-28 overflow-hidden">
+    <section className="bg-surface py-20 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-12 lg:mb-16">
           <motion.div
@@ -56,7 +56,7 @@ export default function Hospitals() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.05] text-white max-w-xl"
+            className="font-display text-[clamp(2.2rem,4vw,3.6rem)] font-light leading-[1.05] text-navy-950 max-w-xl"
           >
             Practicing at <em>Greece's leading</em> private hospitals
           </motion.h2>

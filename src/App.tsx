@@ -13,7 +13,7 @@ import BackToTop from './components/BackToTop'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-navy-950 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-home-page overflow-x-hidden">
       <Navbar />
       <Hero />
       <TrustMetrics />

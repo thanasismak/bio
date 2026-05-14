@@ -13,7 +13,7 @@ export default function About() {
   const reduced = useReducedMotion()
 
   return (
-    <section id="about" className="bg-navy-950 py-24 lg:py-36 overflow-hidden">
+    <section id="about" className="bg-navy-900 py-24 lg:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
@@ -74,14 +74,14 @@ export default function About() {
               <h2 className="font-display text-[clamp(2.4rem,4.5vw,3.8rem)] font-light leading-[1.05] text-white mb-6">
                 A decade of <em>precision</em> at the intersection of sport and surgery
               </h2>
-              <p className="font-sans text-white/50 text-base leading-relaxed mb-4">
+              <p className="font-sans text-white/75 text-base leading-relaxed mb-4">
                 Dr. Kyriakos Bekas is an Orthopedic Surgeon specialising in sports injuries and joint
                 reconstruction surgery. A graduate of the Military College of Officers Medical School
                 (2015), he completed his residency across leading Athenian hospitals — including 401
                 ΓΣΝΑ and Γ. Γεννηματάς — and pursued advanced fellowship training at the renowned
                 SportClinic Zurich Hirslanden in Switzerland.
               </p>
-              <p className="font-sans text-white/50 text-base leading-relaxed">
+              <p className="font-sans text-white/75 text-base leading-relaxed">
                 He holds a Master's degree in Metabolic Bone Diseases from the National and
                 Kapodistrian University of Athens and is a certified physician of the FIFA Football
                 Medicine programme. Since 2026, Dr. Bekas serves as Registrar at 401 ΓΣΝΑ and
@@ -101,19 +101,9 @@ export default function About() {
                   className="flex items-start gap-3"
                 >
                   <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" strokeWidth={1.5} />
-                  <span className="font-sans text-sm text-white/65">{c}</span>
+                  <span className="font-sans text-sm text-white/75">{c}</span>
                 </motion.div>
               ))}
-            </div>
-
-            <div className="pt-2">
-              <a
-                href="#credentials"
-                className="inline-flex items-center gap-2 font-sans text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors duration-200 group"
-              >
-                View full credentials
-                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-              </a>
             </div>
           </motion.div>
         </div>

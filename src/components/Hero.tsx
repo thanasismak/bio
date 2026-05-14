@@ -29,14 +29,14 @@ export default function Hero() {
   const cueOpacity   = useTransform(scrollYProgress, [0, 0.12], [1, 0])
 
   return (
-    <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden bg-surface">
 
-      <div className="absolute inset-0 bg-navy-950">
+      <div className="absolute inset-0 bg-surface">
         <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse 80% 60% at 75% 15%, rgba(45,212,191,0.09) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse 80% 60% at 75% 15%, rgba(45,212,191,0.14) 0%, transparent 65%)',
         }} />
         <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse 50% 50% at 15% 85%, rgba(200,169,110,0.05) 0%, transparent 55%)',
+          background: 'radial-gradient(ellipse 50% 50% at 15% 85%, rgba(200,169,110,0.12) 0%, transparent 55%)',
         }} />
       </div>
 
@@ -49,8 +49,15 @@ export default function Hero() {
         className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none overflow-hidden"
       >
         <span
-          className="font-display font-light text-white leading-none"
-          style={{ fontSize: 'clamp(12rem, 30vw, 38rem)', opacity: 0.018, letterSpacing: '-0.04em' }}
+          className="font-display font-light leading-none"
+          style={{
+            fontSize: 'clamp(12rem, 30vw, 38rem)',
+            color: 'transparent',
+            WebkitBackgroundClip: 'text',
+            backgroundImage: 'linear-gradient(180deg, rgba(8,13,26,0.45), rgba(8,13,26,0.14))',
+            opacity: 0.22,
+            letterSpacing: '-0.04em',
+          }}
         >
           KB
         </span>
@@ -84,12 +91,12 @@ export default function Hero() {
                 initial={reduced ? false : { opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.95, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display font-light leading-[0.9] tracking-tight text-white"
+                className="font-display font-light leading-[0.9] tracking-tight text-navy-950"
                 style={{ fontSize: 'clamp(3.2rem, 8vw, 7.5rem)' }}
               >
                 <em>Dr. Kyriakos</em>
                 <br />
-                <span className="text-white/85">Bekas</span>
+                <span className="text-navy-950/95">Bekas</span>
               </motion.h1>
             </div>
 
@@ -98,7 +105,7 @@ export default function Hero() {
               initial={reduced ? false : { opacity: 0, x: -32 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.52, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="font-sans text-white/50 text-lg font-light leading-relaxed max-w-[42ch]"
+              className="font-sans text-navy-950/70 text-lg font-light leading-relaxed max-w-[42ch]"
             >
               Precision orthopaedic surgery for sports injuries and joint reconstruction.
               FIFA-certified. Serving elite athletes and everyday patients alike.
@@ -113,13 +120,13 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="px-8 py-4 bg-teal-400 text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-300"
+                className="px-8 py-4 bg-primary text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-300"
               >
                 Book a Consultation
               </a>
               <a
                 href="#expertise"
-                className="px-8 py-4 border border-white/20 text-white/75 font-sans font-medium text-sm tracking-wide rounded-full hover:border-teal-400/50 hover:text-teal-300 transition-all duration-300"
+                className="px-8 py-4 border border-navy-200 text-navy-950/70 font-sans font-medium text-sm tracking-wide rounded-full hover:border-teal-400/50 hover:text-teal-700 transition-all duration-300"
               >
                 View Expertise
               </a>
@@ -129,7 +136,7 @@ export default function Hero() {
           {/* Photo card */}
           <motion.div
             style={reduced ? {} : { y: rightY, opacity: rightOpacity, scale: rightScale }}
-            className="relative w-64 lg:w-72 xl:w-80 mx-auto"
+            className="relative w-64 lg:w-72 xl:w-80 mx-auto lg:mx-0 lg:-translate-x-10 xl:-translate-x-12"
           >
             {/* Entrance animation wrapper */}
             <motion.div

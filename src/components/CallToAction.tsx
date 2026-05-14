@@ -62,7 +62,7 @@ export default function CallToAction() {
           <motion.button
             whileHover={reduced ? undefined : { scale: 1.03 }}
             whileTap={reduced ? undefined : { scale: 0.98 }}
-            className="flex items-center gap-3 px-9 py-4 bg-teal-400 text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-200 shadow-lg shadow-teal-400/20"
+            className="flex items-center gap-3 px-9 py-4 bg-primary text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-200 shadow-lg shadow-teal-400/20"
           >
             <Calendar className="w-4 h-4" strokeWidth={2} />
             Schedule a Consultation
