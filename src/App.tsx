@@ -10,6 +10,8 @@ import Timeline from './components/Timeline'
 import CallToAction from './components/CallToAction'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
+import ThemeSwitcher from './components/ThemeSwitcher'
+import SectionDivider from './components/SectionDivider'
 
 export default function App() {
   return (
@@ -22,10 +24,12 @@ export default function App() {
       <Expertise />
       <CareApproach />
       <Timeline />
+      <SectionDivider />
       {/* <Testimonials /> */}
       <CallToAction />
       <Footer />
       <BackToTop />
+      <ThemeSwitcher />
     </div>
   )
 }
