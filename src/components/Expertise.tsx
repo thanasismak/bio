@@ -1,45 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { Activity, ScanSearch, Shield, Leaf, Zap, Trophy } from 'lucide-react'
+import { Dumbbell, ScanSearch, Bone, FlaskConical, Bandage } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-
-interface Service {
-  icon: LucideIcon
-  title: string
-  description: string
-}
-
-const services: Service[] = [
-  {
-    icon: Activity,
-    title: 'Sports Injuries',
-    description: "Comprehensive management of musculoskeletal sports injuries — from acute trauma to chronic overuse conditions — tailored to each patient's activity level and goals.",
-  },
-  {
-    icon: ScanSearch,
-    title: 'Arthroscopic Surgery',
-    description: 'Minimally invasive arthroscopic procedures of the shoulder and knee, including ACL reconstruction, rotator cuff repair, and meniscal surgery.',
-  },
-  {
-    icon: Shield,
-    title: 'Hip & Knee Arthroplasty',
-    description: 'Total and partial joint replacement surgery for hip and knee arthritis, using the latest implant technologies and rapid recovery protocols.',
-  },
-  {
-    icon: Leaf,
-    title: 'Biological Therapies',
-    description: 'Advanced regenerative treatments — PRP, stem cell therapy, and biological augmentation — integrated into personalised recovery plans.',
-  },
-  {
-    icon: Zap,
-    title: 'Trauma & Fracture Care',
-    description: 'Surgical and non-surgical management of acute fractures and complex orthopaedic trauma, from simple breaks to multi-fragment injuries.',
-  },
-  {
-    icon: Trophy,
-    title: 'FIFA Sports Medicine',
-    description: 'FIFA-certified sports medicine care for athletes of all levels — injury prevention, performance assessment, and return-to-sport protocols.',
-  },
-]
+import { useLanguage } from '../contexts/LanguageContext'
 
 const container = {
   hidden: {},
@@ -53,6 +15,15 @@ const card = {
 
 export default function Expertise() {
   const reduced = useReducedMotion()
+  const { t } = useLanguage()
+
+  const services: { icon: LucideIcon; title: string; description: string }[] = [
+    { icon: Dumbbell,     title: t.expertiseS1Title, description: t.expertiseS1Desc },
+    { icon: ScanSearch,   title: t.expertiseS2Title, description: t.expertiseS2Desc },
+    { icon: Bone,         title: t.expertiseS3Title, description: t.expertiseS3Desc },
+    { icon: FlaskConical, title: t.expertiseS4Title, description: t.expertiseS4Desc },
+    { icon: Bandage,      title: t.expertiseS5Title, description: t.expertiseS5Desc },
+  ]
 
   return (
     <section id="expertise" className="bg-navy-900 py-24 lg:py-36">
@@ -66,16 +37,16 @@ export default function Expertise() {
             className="flex items-center gap-3 mb-5"
           >
             <span className="h-px w-10 bg-teal-400" />
-            <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">Areas of Expertise</span>
+            <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">{t.expertiseLabel}</span>
           </motion.div>
           <motion.h2
             initial={reduced ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.05] text-white max-w-2xl"
+            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[1.05] text-white max-w-2xl"
           >
-            Specialised care for <em>every dimension</em> of orthopaedic health
+            {t.expertiseHeading}
           </motion.h2>
         </div>
 
@@ -101,12 +72,10 @@ export default function Expertise() {
                 <div className="w-11 h-11 rounded-xl bg-teal-400/[0.1] flex items-center justify-center mb-5 group-hover:bg-teal-400/[0.15] transition-colors duration-300">
                   <Icon className="w-5 h-5 text-teal-400" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-display text-xl font-medium text-white mb-3 group-hover:text-teal-100 transition-colors duration-300">
+                <h3 className="font-display text-xl font-semibold text-white mb-3 group-hover:text-teal-100 transition-colors duration-300">
                   {title}
                 </h3>
-                <p className="font-sans text-sm text-white/45 leading-relaxed">
-                  {description}
-                </p>
+                <p className="font-sans text-sm text-white/65 leading-relaxed">{description}</p>
               </div>
             </motion.div>
           ))}

@@ -1,19 +1,16 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { CheckCircle } from 'lucide-react'
 import { assetUrl } from '../utils/assets'
-
-const credentials = [
-  'M.D., Military College of Officers Medical School, Athens (2015)',
-  'MSc Metabolic Bone Diseases, National & Kapodistrian University of Athens',
-  'FIFA Diploma in Football Medicine — FIFA Medical Network',
-  'Member, ESSKA & AO Foundation',
-]
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function About() {
   const reduced = useReducedMotion()
+  const { t } = useLanguage()
+
+  const credentials = [t.aboutCred1, t.aboutCred2, t.aboutCred3, t.aboutCred4]
 
   return (
-    <section id="about" className="bg-navy-900 py-24 lg:py-36 overflow-hidden">
+    <section id="about" className="bg-navy-900 py-24 lg:py-36 overflow-hidden border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
@@ -44,7 +41,7 @@ export default function About() {
               >
                 <div className="flex justify-center gap-6">
                   {['401 ΓΣΝΑ', 'Bioclinic Athens', 'Hirslanden Zürich'].map((inst) => (
-                    <span key={inst} className="font-sans text-[9px] tracking-widest text-white/35 uppercase">
+                    <span key={inst} className="font-sans text-[9px] tracking-widest text-white/50 uppercase">
                       {inst}
                     </span>
                   ))}
@@ -69,31 +66,19 @@ export default function About() {
             <div>
               <div className="flex items-center gap-3 mb-5">
                 <span className="h-px w-10 bg-teal-400" />
-                <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">About</span>
+                <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">{t.aboutLabel}</span>
               </div>
-              <h2 className="font-display text-[clamp(2.4rem,4.5vw,3.8rem)] font-light leading-[1.05] text-white mb-6">
-                A decade of <em>precision</em> at the intersection of sport and surgery
+              <h2 className="font-display text-[clamp(2.4rem,4.5vw,3.8rem)] font-semibold leading-[1.05] text-white mb-6">
+                {t.aboutHeading}
               </h2>
-              <p className="font-sans text-white/75 text-base leading-relaxed mb-4">
-                Dr. Kyriakos Bekas is an Orthopedic Surgeon specialising in sports injuries and joint
-                reconstruction surgery. A graduate of the Military College of Officers Medical School
-                (2015), he completed his residency across leading Athenian hospitals — including 401
-                ΓΣΝΑ and Γ. Γεννηματάς — and pursued advanced fellowship training at the renowned
-                SportClinic Zurich Hirslanden in Switzerland.
-              </p>
-              <p className="font-sans text-white/75 text-base leading-relaxed">
-                He holds a Master's degree in Metabolic Bone Diseases from the National and
-                Kapodistrian University of Athens and is a certified physician of the FIFA Football
-                Medicine programme. Since 2026, Dr. Bekas serves as Registrar at 401 ΓΣΝΑ and
-                maintains a private practice at Bioclinic Athens. He is an active member of ESSKA
-                and AO Foundation.
-              </p>
+              <p className="font-sans text-white/75 text-base leading-relaxed mb-4">{t.aboutPara1}</p>
+              <p className="font-sans text-white/75 text-base leading-relaxed">{t.aboutPara2}</p>
             </div>
 
             <div className="space-y-3 pt-2">
               {credentials.map((c, i) => (
                 <motion.div
-                  key={c}
+                  key={i}
                   initial={reduced ? false : { opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}

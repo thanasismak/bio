@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, useReducedMotion } from 'motion/react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface MetricProps {
   to: number
@@ -31,15 +32,16 @@ function Counter({ to, decimals = 0, suffix = '' }: MetricProps) {
   return <span ref={ref} className="tabular-nums">{display}{suffix}</span>
 }
 
-const stats = [
-  { value: 10, suffix: '+', label: 'Years of Practice', sublabel: 'Orthopedic Surgery' },
-  { value: 6, suffix: '+', label: 'Publications', sublabel: 'Peer-Reviewed Journals' },
-  { value: 15, suffix: '+', label: 'International Courses', sublabel: 'Fellowships & Training' },
-  { value: 4.9, suffix: '', decimals: 1, label: 'Patient Rating', sublabel: 'Out of 5.0 Stars' },
-]
-
 export default function TrustMetrics() {
   const reduced = useReducedMotion()
+  const { t } = useLanguage()
+
+  const stats = [
+    { value: 10, suffix: '+', label: t.trustYearsLabel, sublabel: t.trustYearsSub },
+    { value: 6,  suffix: '+', label: t.trustPubLabel,   sublabel: t.trustPubSub },
+    { value: 15, suffix: '+', label: t.trustCourseLabel, sublabel: t.trustCourseSub },
+    { value: 4.9, suffix: '', decimals: 1, label: t.trustRatingLabel, sublabel: t.trustRatingSub },
+  ]
 
   return (
     <section className="bg-navy-900 border-y border-white/[0.06]">
@@ -58,7 +60,7 @@ export default function TrustMetrics() {
                 <Counter to={s.value} decimals={s.decimals ?? 0} suffix={s.suffix} />
               </p>
               <p className="font-sans text-sm font-medium text-white/75 mb-1">{s.label}</p>
-              <p className="font-sans text-xs text-white/35">{s.sublabel}</p>
+              <p className="font-sans text-xs text-white/50">{s.sublabel}</p>
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,9 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { GraduationCap, Building2, Trophy, BookOpen, Award, Microscope } from 'lucide-react'
+import { GraduationCap, Building2, Trophy, BookOpen, Award } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { useLanguage } from '../contexts/LanguageContext'
+
+type Side = 'left' | 'right'
 
 interface TimelineItem {
   year: string
@@ -8,62 +11,20 @@ interface TimelineItem {
   title: string
   institution: string
   description: string
-  side: 'left' | 'right'
+  side: Side
 }
-
-const items: TimelineItem[] = [
-  {
-    year: '2015',
-    icon: GraduationCap,
-    title: 'Doctor of Medicine',
-    institution: 'Military College of Officers Medical School, Athens',
-    description: "Graduated from the Medical School of the Hellenic Army's officer academy, establishing a foundation of discipline and clinical excellence.",
-    side: 'left',
-  },
-  {
-    year: '2015–2026',
-    icon: Building2,
-    title: 'Orthopaedic & Traumatology Residency',
-    institution: '401 ΓΣΝΑ · Γ. Γεννηματάς · Παίδων "Π. & Α. Κυριακού"',
-    description: "Full specialist training in orthopaedics and traumatology across three of Athens' leading hospitals, covering the full spectrum of surgical and conservative care.",
-    side: 'right',
-  },
-  {
-    year: '2019',
-    icon: Trophy,
-    title: 'FIFA Diploma in Football Medicine',
-    institution: 'FIFA Medical Network',
-    description: 'Certified physician of the FIFA Football Medicine programme — one of the premier international qualifications in sports medicine for athletes of all levels.',
-    side: 'left',
-  },
-  {
-    year: '2022',
-    icon: BookOpen,
-    title: 'MSc Metabolic Bone Diseases',
-    institution: 'National & Kapodistrian University of Athens',
-    description: 'Postgraduate research degree focusing on bone metabolism, osteoporosis, and the role of bone mineral density in orthopaedic surgical outcomes.',
-    side: 'right',
-  },
-  {
-    year: '2025',
-    icon: Award,
-    title: 'ON Foundation Clinical Fellowship',
-    institution: 'Hirslanden SportClinic, Zürich',
-    description: "Competitive international fellowship at one of Europe's foremost sports orthopaedic centres, advancing skills in arthroscopic and reconstructive knee and shoulder surgery.",
-    side: 'left',
-  },
-  {
-    year: '2026',
-    icon: Microscope,
-    title: 'Registrar — Orthopaedic Surgery',
-    institution: '401 ΓΣΝΑ · Bioclinic Athens (Private Practice)',
-    description: 'Currently serving as Orthopaedic Registrar at 401 ΓΣΝΑ while conducting a private practice at Bioclinic Athens for sports injuries, arthroplasty, and biological therapies.',
-    side: 'right',
-  },
-]
 
 export default function Timeline() {
   const reduced = useReducedMotion()
+  const { t } = useLanguage()
+
+  const items: TimelineItem[] = [
+    { year: '2025',      icon: Award,        title: t.tl1Title, institution: t.tl1Inst, description: t.tl1Desc, side: 'left' },
+    { year: '2022',      icon: BookOpen,     title: t.tl2Title, institution: t.tl2Inst, description: t.tl2Desc, side: 'right' },
+    { year: '2019',      icon: Trophy,       title: t.tl3Title, institution: t.tl3Inst, description: t.tl3Desc, side: 'left' },
+    { year: '2015–2026', icon: Building2,    title: t.tl4Title, institution: t.tl4Inst, description: t.tl4Desc, side: 'right' },
+    { year: '2015',      icon: GraduationCap, title: t.tl5Title, institution: t.tl5Inst, description: t.tl5Desc, side: 'left' },
+  ]
 
   return (
     <section id="credentials" className="bg-navy-900 py-24 lg:py-36 overflow-hidden">
@@ -77,16 +38,16 @@ export default function Timeline() {
             className="flex items-center gap-3 mb-5"
           >
             <span className="h-px w-10 bg-teal-400" />
-            <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">Credentials</span>
+            <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">{t.timelineLabel}</span>
           </motion.div>
           <motion.h2
             initial={reduced ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.05] text-white max-w-xl"
+            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[1.05] text-white max-w-xl"
           >
-            A career built on <em>rigorous</em> foundations
+            {t.timelineHeading}
           </motion.h2>
         </div>
 
@@ -151,12 +112,7 @@ export default function Timeline() {
 function TimelineCard({
   year, icon: Icon, title, institution, description, align,
 }: {
-  year: string
-  icon: LucideIcon
-  title: string
-  institution: string
-  description: string
-  align: 'left' | 'right'
+  year: string; icon: LucideIcon; title: string; institution: string; description: string; align: 'left' | 'right'
 }) {
   return (
     <div className={`space-y-3 ${align === 'right' ? 'items-end flex flex-col' : ''}`}>
@@ -169,11 +125,11 @@ function TimelineCard({
             <Icon className="w-4 h-4 text-teal-400" strokeWidth={1.5} />
           </div>
           <div>
-            <p className="font-display text-base font-medium text-white leading-tight">{title}</p>
+            <p className="font-display text-base font-semibold text-white leading-tight">{title}</p>
             <p className="font-sans text-[11px] text-teal-400/70 tracking-wide mt-0.5">{institution}</p>
           </div>
         </div>
-        <p className="font-sans text-xs text-white/40 leading-relaxed">{description}</p>
+        <p className="font-sans text-xs text-white/65 leading-relaxed">{description}</p>
       </div>
     </div>
   )

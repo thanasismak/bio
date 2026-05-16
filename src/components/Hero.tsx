@@ -2,16 +2,12 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import { Award, Trophy, Users, ChevronDown } from 'lucide-react'
 import { assetUrl } from '../utils/assets'
-
-const floatingCards = [
-  { icon: Award,  value: '10+',  label: 'Years Experience', pos: '-left-12 top-10',    floatY: -7, delay: 0,   enterX: -20 },
-  { icon: Trophy, value: 'FIFA', label: 'Certified',        pos: '-right-8 top-1/3',   floatY: -9, delay: 0.2, enterX:  20 },
-  { icon: Users,  value: '4.9★', label: 'Patient Rating',   pos: '-left-10 bottom-20', floatY: -6, delay: 0.4, enterX: -20 },
-]
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null)
   const reduced = useReducedMotion()
+  const { t } = useLanguage()
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
@@ -28,6 +24,12 @@ export default function Hero() {
   const floatOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0])
   const cueOpacity   = useTransform(scrollYProgress, [0, 0.12], [1, 0])
 
+  const floatingCards = [
+    { icon: Award,  value: '10+',  label: t.heroYearsExp, pos: '-left-12 top-10',    floatY: -7, delay: 0,   enterX: -20 },
+    { icon: Trophy, value: 'FIFA', label: t.heroFifa,     pos: '-right-8 top-1/3',   floatY: -9, delay: 0.2, enterX:  20 },
+    { icon: Users,  value: '4.9★', label: t.heroRating,   pos: '-left-10 bottom-20', floatY: -6, delay: 0.4, enterX: -20 },
+  ]
+
   return (
     <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden bg-surface">
 
@@ -40,7 +42,7 @@ export default function Hero() {
         }} />
       </div>
 
-      {/* Background initials */}
+      {/* Background brand logo watermark */}
       <motion.div
         initial={reduced ? false : { opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -48,19 +50,11 @@ export default function Hero() {
         transition={{ duration: 2.5, ease: 'easeOut' }}
         className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none overflow-hidden"
       >
-        <span
-          className="font-display font-light leading-none"
-          style={{
-            fontSize: 'clamp(12rem, 30vw, 38rem)',
-            color: 'transparent',
-            WebkitBackgroundClip: 'text',
-            backgroundImage: 'linear-gradient(180deg, rgba(8,13,26,0.45), rgba(8,13,26,0.14))',
-            opacity: 0.22,
-            letterSpacing: '-0.04em',
-          }}
-        >
-          KB
-        </span>
+        <img
+          src={assetUrl('/brand/logo-watermark.png')}
+          alt=""
+          style={{ width: 'clamp(18rem, 42vw, 52rem)', opacity: 0.13, mixBlendMode: 'multiply' }}
+        />
       </motion.div>
 
       {/* ── Main grid ── */}
@@ -81,22 +75,22 @@ export default function Hero() {
             >
               <span className="h-px w-10 bg-teal-400" />
               <span className="text-teal-400 font-sans text-xs font-semibold tracking-[0.22em] uppercase">
-                Orthopedic Surgeon
+                {t.heroSpecialty}
               </span>
             </motion.div>
 
-            {/* Doctor name */}
+            {/* Hero headline — replaces doctor name since logo shows it */}
             <div className="overflow-hidden">
               <motion.h1
                 initial={reduced ? false : { opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.95, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display font-light leading-[0.9] tracking-tight text-navy-950"
-                style={{ fontSize: 'clamp(3.2rem, 8vw, 7.5rem)' }}
+                className="font-display font-normal leading-[1.0] tracking-tight text-navy-950"
+                style={{ fontSize: 'clamp(3rem, 7.5vw, 6.8rem)' }}
               >
-                <em>Dr. Kyriakos</em>
+                <em className="font-medium">{t.heroLine1}</em>
                 <br />
-                <span className="text-navy-950/95">Bekas</span>
+                <span className="text-navy-950/90 font-semibold">{t.heroLine2}</span>
               </motion.h1>
             </div>
 
@@ -107,8 +101,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.52, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="font-sans text-navy-950/70 text-lg font-light leading-relaxed max-w-[42ch]"
             >
-              Precision orthopaedic surgery for sports injuries and joint reconstruction.
-              FIFA-certified. Serving elite athletes and everyday patients alike.
+              {t.heroTagline}
             </motion.p>
 
             {/* CTAs */}
@@ -122,13 +115,13 @@ export default function Hero() {
                 href="#contact"
                 className="px-8 py-4 bg-primary text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-300"
               >
-                Book a Consultation
+                {t.heroCta}
               </a>
               <a
                 href="#expertise"
                 className="px-8 py-4 border border-navy-200 text-navy-950/70 font-sans font-medium text-sm tracking-wide rounded-full hover:border-teal-400/50 hover:text-teal-700 transition-all duration-300"
               >
-                View Expertise
+                {t.heroCtaExpertise}
               </a>
             </motion.div>
           </motion.div>
@@ -138,14 +131,12 @@ export default function Hero() {
             style={reduced ? {} : { y: rightY, opacity: rightOpacity, scale: rightScale }}
             className="relative w-64 lg:w-72 xl:w-80 mx-auto lg:mx-0 lg:-translate-x-10 xl:-translate-x-12"
           >
-            {/* Entrance animation wrapper */}
             <motion.div
               initial={reduced ? false : { opacity: 0, x: 70 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.05, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              {/* Breathing glow ring */}
               <motion.div
                 animate={reduced ? {} : { opacity: [0.3, 0.7, 0.3], scale: [0.97, 1.02, 0.97] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
@@ -153,7 +144,6 @@ export default function Hero() {
                 style={{ background: 'radial-gradient(circle, rgba(45,212,191,0.12) 0%, transparent 70%)' }}
               />
 
-              {/* Photo card */}
               <motion.div
                 animate={reduced ? {} : {
                   boxShadow: [
@@ -166,7 +156,6 @@ export default function Hero() {
                 className="relative rounded-3xl overflow-hidden border border-white/[0.08]"
                 style={{ aspectRatio: '3/4' }}
               >
-                {/* Photo — clip-path reveal upward */}
                 <motion.div
                   initial={reduced ? false : { clipPath: 'inset(100% 0% 0% 0%)' }}
                   animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
@@ -180,13 +169,11 @@ export default function Hero() {
                   />
                 </motion.div>
 
-                {/* Gradient overlay */}
                 <div
                   className="absolute inset-0 pointer-events-none"
                   style={{ background: 'linear-gradient(to top, rgba(8,13,26,0.88) 0%, rgba(8,13,26,0.08) 45%, transparent 70%)' }}
                 />
 
-                {/* Credential badge */}
                 <motion.div
                   initial={reduced ? false : { opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -198,7 +185,6 @@ export default function Hero() {
                 </motion.div>
               </motion.div>
 
-              {/* Floating metric cards — fade out first on scroll */}
               <motion.div
                 style={reduced ? {} : { opacity: floatOpacity }}
                 className="absolute inset-0 pointer-events-none"
@@ -229,7 +215,7 @@ export default function Hero() {
                       </div>
                       <div>
                         <p className="font-display text-xl font-semibold text-white leading-none">{value}</p>
-                        <p className="font-sans text-[10px] text-white/45 mt-0.5 whitespace-nowrap">{label}</p>
+                        <p className="font-sans text-[10px] text-white/65 mt-0.5 whitespace-nowrap">{label}</p>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -244,12 +230,12 @@ export default function Hero() {
         style={reduced ? {} : { opacity: cueOpacity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="font-sans text-[10px] tracking-[0.25em] text-white/25 uppercase">Scroll</span>
+        <span className="font-sans text-[10px] tracking-[0.25em] text-navy-950/30 uppercase">{t.heroScroll}</span>
         <motion.div
           animate={reduced ? {} : { y: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown className="w-4 h-4 text-white/25" />
+          <ChevronDown className="w-4 h-4 text-navy-950/30" />
         </motion.div>
       </motion.div>
     </section>

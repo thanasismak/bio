@@ -6,7 +6,7 @@ import Hospitals from './components/Hospitals'
 import Expertise from './components/Expertise'
 import CareApproach from './components/CareApproach'
 import Timeline from './components/Timeline'
-import Testimonials from './components/Testimonials'
+// import Testimonials from './components/Testimonials'
 import CallToAction from './components/CallToAction'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
@@ -22,7 +22,7 @@ export default function App() {
       <Expertise />
       <CareApproach />
       <Timeline />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CallToAction />
       <Footer />
       <BackToTop />

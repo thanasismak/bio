@@ -1,11 +1,13 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Calendar } from 'lucide-react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function CallToAction() {
   const reduced = useReducedMotion()
+  const { t } = useLanguage()
 
   return (
-    <section id="contact" className="relative py-28 lg:py-40 overflow-hidden">
+    <section id="contact" className="relative py-28 lg:py-40 overflow-hidden border-t border-teal-400/20">
       <div className="absolute inset-0 bg-navy-900">
         <div
           className="absolute inset-0"
@@ -26,7 +28,7 @@ export default function CallToAction() {
           className="flex items-center justify-center gap-3 mb-8"
         >
           <span className="h-px w-10 bg-teal-400" />
-          <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">Get Started</span>
+          <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">{t.ctaLabel}</span>
           <span className="h-px w-10 bg-teal-400" />
         </motion.div>
 
@@ -35,10 +37,10 @@ export default function CallToAction() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-[clamp(2.8rem,6vw,5.5rem)] font-light leading-[1.0] text-white mb-8"
+          className="font-display text-[clamp(2.8rem,6vw,5.5rem)] font-semibold leading-[1.0] text-white mb-8"
         >
-          Ready to begin your <br />
-          <em className="text-teal-300">recovery journey?</em>
+          {t.ctaHeading1} <br />
+          <em className="text-teal-300 font-medium">{t.ctaHeading2}</em>
         </motion.h2>
 
         <motion.p
@@ -46,10 +48,9 @@ export default function CallToAction() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="font-sans text-white/45 text-lg font-light leading-relaxed max-w-2xl mx-auto mb-12"
+          className="font-sans text-white/65 text-lg font-light leading-relaxed max-w-2xl mx-auto mb-12"
         >
-          A first consultation begins with a thorough clinical assessment of your condition —
-          followed by a clear, personalised plan. New and returning patients welcome.
+          {t.ctaBody}
         </motion.p>
 
         <motion.div
@@ -62,13 +63,13 @@ export default function CallToAction() {
           <motion.button
             whileHover={reduced ? undefined : { scale: 1.03 }}
             whileTap={reduced ? undefined : { scale: 0.98 }}
-            className="flex items-center gap-3 px-9 py-4 bg-primary text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-200 shadow-lg shadow-teal-400/20"
+            className="flex items-center gap-3 px-9 py-4 bg-primary text-navy-950 font-sans font-semibold text-sm tracking-wide rounded-full hover:bg-teal-300 transition-colors duration-200 shadow-lg shadow-teal-400/20 cursor-pointer"
           >
             <Calendar className="w-4 h-4" strokeWidth={2} />
-            Schedule a Consultation
+            {t.ctaSchedule}
           </motion.button>
-          <button className="flex items-center gap-2 px-9 py-4 border border-white/20 text-white/70 font-sans font-medium text-sm tracking-wide rounded-full hover:border-teal-400/40 hover:text-teal-300 transition-all duration-300 group">
-            Learn More
+          <button className="flex items-center gap-2 px-9 py-4 border border-white/20 text-white/70 font-sans font-medium text-sm tracking-wide rounded-full hover:border-teal-400/40 hover:text-teal-300 transition-all duration-300 group cursor-pointer">
+            {t.ctaLearn}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </button>
         </motion.div>
@@ -78,9 +79,9 @@ export default function CallToAction() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-white/30"
+          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-white/40"
         >
-          {['No referral required', 'Same-week appointments available', 'Private & ΕΟΠΥΥ patients welcome'].map((label, i) => (
+          {[t.ctaBullet1, t.ctaBullet2, t.ctaBullet3].map((label, i) => (
             <span key={i} className="flex items-center gap-2 font-sans text-xs">
               <span className="w-1 h-1 rounded-full bg-teal-400/50" />
               {label}
