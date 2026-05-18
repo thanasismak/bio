@@ -1,6 +1,6 @@
 export default function SectionDivider() {
   return (
-    <div className="bg-navy-900 px-6 lg:px-12">
+    <div className="bg-home-page px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div
           className="h-px w-full"

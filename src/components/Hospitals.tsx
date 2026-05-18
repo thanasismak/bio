@@ -36,18 +36,12 @@ export default function Hospitals() {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-10 bg-teal-400" />
-              <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">
-                {t.hospitalsLabel}
-              </span>
+              <span className="type-eyebrow text-teal-400">{t.hospitalsLabel}</span>
             </div>
 
-            <h2 className="font-display text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-[1.1] text-navy-950 mb-6">
-              {t.hospitalsHeading}
-            </h2>
+            <h2 className="type-h2 text-navy-950 mb-6">{t.hospitalsHeading}</h2>
 
-            <p className="font-sans text-base text-navy-950/55 leading-relaxed max-w-sm">
-              {t.hospitalsDesc}
-            </p>
+            <p className="type-body text-navy-950/55 max-w-sm">{t.hospitalsDesc}</p>
 
             <div className="mt-10 h-px w-12 bg-teal-400/40" />
           </motion.div>
@@ -67,8 +61,8 @@ export default function Hospitals() {
                   <img src={src} alt={alt} className="max-h-10 max-w-[5.5rem] object-contain" />
                 </div>
                 <div>
-                  <p className="font-display text-lg font-semibold text-navy-950">{name}</p>
-                  <p className="font-sans text-sm text-navy-950/45 mt-1 leading-relaxed">{description}</p>
+                  <p className="type-h3 text-navy-950">{name}</p>
+                  <p className="type-body-sm text-navy-950/45 mt-1">{description}</p>
                 </div>
                 <div className="ml-auto w-0.5 h-8 rounded-full bg-teal-400/0 group-hover:bg-teal-400/50 transition-colors duration-300 shrink-0" />
               </motion.div>

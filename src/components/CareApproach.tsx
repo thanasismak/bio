@@ -26,14 +26,14 @@ export default function CareApproach() {
             className="flex items-center gap-3 mb-5"
           >
             <span className="h-px w-10 bg-teal-400" />
-            <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">{t.careLabel}</span>
+            <span className="type-eyebrow text-teal-400">{t.careLabel}</span>
           </motion.div>
           <motion.h2
             initial={reduced ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[1.05] text-navy-950 max-w-xl"
+            className="type-h2 text-navy-950 max-w-xl"
           >
             {t.careHeading}
           </motion.h2>
@@ -51,7 +51,7 @@ export default function CareApproach() {
             >
               <div className="flex items-start gap-6">
                 <span
-                  className="font-display text-6xl font-light leading-none shrink-0 mt-1"
+                  className="type-stat text-6xl shrink-0 mt-1"
                   style={{ color: 'rgba(160,120,60,0.30)' }}
                 >
                   {num}
@@ -61,9 +61,9 @@ export default function CareApproach() {
                     <div className="w-9 h-9 rounded-lg bg-teal-400/[0.1] flex items-center justify-center">
                       <Icon className="w-4 h-4 text-teal-400" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-display text-xl font-semibold text-navy-950">{title}</h3>
+                    <h3 className="type-h3 text-navy-950">{title}</h3>
                   </div>
-                  <p className="font-sans text-sm text-navy-950/60 leading-relaxed">{description}</p>
+                  <p className="type-body-sm text-navy-950/60">{description}</p>
                 </div>
               </div>
             </motion.div>

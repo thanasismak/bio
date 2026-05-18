@@ -27,7 +27,7 @@ export default function Timeline() {
   ]
 
   return (
-    <section id="credentials" className="bg-navy-900 py-24 lg:py-36 overflow-hidden">
+    <section id="credentials" className="bg-surface py-24 lg:py-36 overflow-hidden border-t border-navy-950/[0.07]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 lg:mb-20">
           <motion.div
@@ -38,14 +38,14 @@ export default function Timeline() {
             className="flex items-center gap-3 mb-5"
           >
             <span className="h-px w-10 bg-teal-400" />
-            <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">{t.timelineLabel}</span>
+            <span className="type-eyebrow text-teal-400">{t.timelineLabel}</span>
           </motion.div>
           <motion.h2
             initial={reduced ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[1.05] text-white max-w-xl"
+            className="type-h2 text-navy-950 max-w-xl"
           >
             {t.timelineHeading}
           </motion.h2>
@@ -53,7 +53,7 @@ export default function Timeline() {
 
         {/* Desktop: alternating timeline */}
         <div className="hidden lg:block relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.07] -translate-x-1/2" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-navy-950/[0.10] -translate-x-1/2" />
           <div className="space-y-14">
             {items.map(({ year, icon: Icon, title, institution, description, side }, i) => (
               <motion.div
@@ -87,7 +87,7 @@ export default function Timeline() {
 
         {/* Mobile: single column */}
         <div className="lg:hidden relative pl-8">
-          <div className="absolute left-3 top-0 bottom-0 w-px bg-white/[0.07]" />
+          <div className="absolute left-3 top-0 bottom-0 w-px bg-navy-950/[0.10]" />
           <div className="space-y-10">
             {items.map(({ year, icon: Icon, title, institution, description }, i) => (
               <motion.div
@@ -116,20 +116,20 @@ function TimelineCard({
 }) {
   return (
     <div className={`space-y-3 ${align === 'right' ? 'items-end flex flex-col' : ''}`}>
-      <span className="inline-block font-display text-3xl font-light text-gold-400 leading-none">
+      <span className="inline-block type-stat text-3xl text-gold-400">
         {year}
       </span>
-      <div className={`p-5 rounded-2xl border border-white/[0.07] bg-navy-800/40 max-w-sm ${align === 'right' ? 'text-right' : ''}`}>
+      <div className={`p-5 rounded-2xl border border-navy-950/[0.08] bg-white shadow-sm max-w-sm ${align === 'right' ? 'text-right' : ''}`}>
         <div className={`flex items-center gap-3 mb-3 ${align === 'right' ? 'flex-row-reverse' : ''}`}>
           <div className="w-8 h-8 rounded-lg bg-teal-400/[0.1] flex items-center justify-center shrink-0">
             <Icon className="w-4 h-4 text-teal-400" strokeWidth={1.5} />
           </div>
           <div>
-            <p className="font-display text-base font-semibold text-white leading-tight">{title}</p>
-            <p className="font-sans text-[11px] text-teal-400/70 tracking-wide mt-0.5">{institution}</p>
+            <p className="type-h3 text-navy-950 text-base">{title}</p>
+            <p className="type-caption text-teal-400/80 mt-0.5">{institution}</p>
           </div>
         </div>
-        <p className="font-sans text-xs text-white/65 leading-relaxed">{description}</p>
+        <p className="type-body-sm text-navy-950/60">{description}</p>
       </div>
     </div>
   )

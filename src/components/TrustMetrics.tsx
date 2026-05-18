@@ -44,7 +44,7 @@ export default function TrustMetrics() {
   ]
 
   return (
-    <section className="bg-navy-900 border-y border-white/[0.06]">
+    <section className="bg-surface-soft border-y border-navy-950/[0.07]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
           {stats.map((s, i) => (
@@ -54,13 +54,13 @@ export default function TrustMetrics() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className={`px-8 py-8 text-center ${i < stats.length - 1 ? 'border-r border-white/[0.07]' : ''}`}
+              className={`px-8 py-8 text-center ${i < stats.length - 1 ? 'border-r border-navy-950/[0.07]' : ''}`}
             >
-              <p className="font-display text-[clamp(2.8rem,5vw,4.2rem)] font-light text-gold-400 leading-none mb-3">
+              <p className="type-stat text-[clamp(2.8rem,5vw,4.2rem)] text-gold-400 mb-3">
                 <Counter to={s.value} decimals={s.decimals ?? 0} suffix={s.suffix} />
               </p>
-              <p className="font-sans text-sm font-medium text-white/75 mb-1">{s.label}</p>
-              <p className="font-sans text-xs text-white/50">{s.sublabel}</p>
+              <p className="type-body-sm font-medium text-navy-950/70 mb-1">{s.label}</p>
+              <p className="type-caption text-navy-950/50">{s.sublabel}</p>
             </motion.div>
           ))}
         </div>

@@ -16,7 +16,7 @@ export default function CallToAction() {
   return (
     <section
       id="contact"
-      className="bg-navy-900 relative py-24 lg:py-36 overflow-hidden border-t border-white/[0.06]"
+      className="bg-surface-soft relative py-24 lg:py-36 overflow-hidden border-t border-navy-950/[0.07]"
     >
       {/* Subtle radial glow */}
       <div
@@ -35,21 +35,17 @@ export default function CallToAction() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-10 bg-white/30" />
-              <span className="font-sans text-xs font-semibold tracking-[0.22em] text-white/50 uppercase">
-                {t.ctaLabel}
-              </span>
+              <span className="h-px w-10 bg-navy-950/20" />
+              <span className="type-eyebrow text-navy-950/50">{t.ctaLabel}</span>
             </div>
 
-            <h2 className="font-display text-[clamp(2.6rem,5vw,4.8rem)] font-semibold leading-[1.05] text-white mb-6">
+            <h2 className="type-h2 text-navy-950 mb-6">
               {t.ctaHeading1}
               <br />
-              <em className="font-light text-teal-300">{t.ctaHeading2}</em>
+              <em className="italic text-primary">{t.ctaHeading2}</em>
             </h2>
 
-            <p className="font-sans text-white/60 text-base leading-relaxed mb-10 max-w-md">
-              {t.ctaBody}
-            </p>
+            <p className="type-body text-navy-950/60 mb-10 max-w-md">{t.ctaBody}</p>
 
             <div className="flex flex-wrap gap-4 mb-10">
               <motion.a
@@ -63,7 +59,7 @@ export default function CallToAction() {
               </motion.a>
               <a
                 href="mailto:info@drbekas.gr"
-                className="flex items-center gap-2 px-8 py-4 border border-white/20 text-white/75 font-sans font-medium text-sm tracking-wide rounded-full hover:border-white/40 hover:text-white transition-all duration-300 group cursor-pointer"
+                className="flex items-center gap-2 px-8 py-4 border border-navy-950/20 text-navy-950/70 font-sans font-medium text-sm tracking-wide rounded-full hover:border-navy-950/40 hover:text-navy-950 transition-all duration-300 group cursor-pointer"
               >
                 {t.ctaLearn}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -72,7 +68,7 @@ export default function CallToAction() {
 
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               {[t.ctaBullet1, t.ctaBullet2, t.ctaBullet3].map((label, i) => (
-                <span key={i} className="flex items-center gap-2 font-sans text-xs text-white/35">
+                <span key={i} className="flex items-center gap-2 font-sans text-xs text-navy-950/40">
                   <span className="w-1 h-1 rounded-full bg-teal-400/60 shrink-0" />
                   {label}
                 </span>
@@ -86,26 +82,26 @@ export default function CallToAction() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="p-8 lg:p-10 rounded-2xl border border-white/[0.10] bg-white/[0.05] backdrop-blur-sm"
+            className="p-8 lg:p-10 rounded-2xl border border-navy-950/[0.10] bg-white shadow-sm"
           >
-            <p className="font-sans text-xs font-semibold tracking-[0.20em] text-white/40 uppercase mb-7">
+            <p className="type-eyebrow text-navy-950/40 mb-7">
               {t.footerContactTitle}
             </p>
 
             <ul className="space-y-6">
               {contactItems.map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-white/[0.08] flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon className="w-4 h-4 text-teal-300/80" strokeWidth={1.5} />
+                  <div className="w-9 h-9 rounded-lg bg-navy-950/[0.05] flex items-center justify-center shrink-0 mt-0.5">
+                    <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
                   </div>
-                  <span className="font-sans text-sm text-white/70 leading-snug pt-2">{text}</span>
+                  <span className="type-body-sm text-navy-950/65 pt-2">{text}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 pt-7 border-t border-white/[0.08] flex items-center gap-3">
+            <div className="mt-8 pt-7 border-t border-navy-950/[0.08] flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-teal-400/80 animate-pulse shrink-0" />
-              <span className="font-sans text-xs text-white/40">{t.footerAccepting}</span>
+              <span className="font-sans text-xs text-navy-950/45">{t.footerAccepting}</span>
             </div>
           </motion.div>
 

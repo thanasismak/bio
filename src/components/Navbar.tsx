@@ -40,7 +40,7 @@ export default function Navbar() {
             <a
               key={href}
               href={href}
-              className="text-sm font-sans font-medium text-navy-950/80 hover:text-navy-950 transition-colors duration-200 tracking-wide"
+              className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors duration-200"
             >
               {t[key]}
             </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="text-sm font-sans font-medium text-navy-950/80 hover:text-navy-950 transition-colors"
+                className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors"
               >
                 {t[key]}
               </a>

@@ -32,55 +32,142 @@ html {
 body {
   background-color: var(--color-home-background);
   color: var(--color-text);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.bg-home-page {
-  background-color: var(--color-home-background);
-}
-.bg-surface {
-  background-color: var(--color-surface);
-}
-.bg-surface-soft {
-  background-color: var(--color-surface-soft);
-}
-.bg-primary {
-  background-color: var(--color-primary);
-}
-.bg-primary-soft {
-  background-color: var(--color-primary-soft);
-}
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-.text-primary {
-  color: var(--color-primary);
-}
-.text-secondary {
-  color: var(--color-secondary);
-}
-.border-primary {
-  border-color: var(--color-primary);
+/* ── Custom background utilities ─────────────────────────────────────────── */
+
+.bg-home-page    { background-color: var(--color-home-background); }
+.bg-surface      { background-color: var(--color-surface); }
+.bg-surface-soft { background-color: var(--color-surface-soft); }
+.bg-primary      { background-color: var(--color-primary); }
+.bg-primary-soft { background-color: var(--color-primary-soft); }
+.bg-secondary    { background-color: var(--color-secondary); }
+
+.text-primary    { color: var(--color-primary); }
+.text-secondary  { color: var(--color-secondary); }
+.border-primary  { border-color: var(--color-primary); }
+
+/* ── Typography System ───────────────────────────────────────────────────── */
+/*
+  Single source of truth for all type styles.
+  Components add only colour, margin, and max-width — never re-specify
+  font-family, font-size, font-weight, line-height, or letter-spacing.
+
+  Scale:
+    .type-eyebrow   — section label pill above headings
+    .type-h1        — hero page title
+    .type-h2        — section heading
+    .type-h3        — card / sub-section heading
+    .type-stat      — large decorative number (TrustMetrics, care pillars)
+    .type-body      — primary body paragraph  (16 px, comfortable for all ages)
+    .type-body-sm   — secondary body / list items (15 px)
+    .type-caption   — metadata, institutions, small labels (13 px)
+*/
+
+/* Eyebrow — the small tracked-out caps label above every section title */
+.type-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;       /* 11 px */
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.4;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
+/* Hero H1 */
+.type-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
 }
-::-webkit-scrollbar-track {
-  background: var(--color-home-background);
+
+/* Section H2 — all section headings share this */
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
-::-webkit-scrollbar-thumb {
-  background: var(--color-navy-900);
-  border-radius: 3px;
+
+/* Card / sub-section H3 */
+.type-h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;          /* 19.2 px */
+  font-weight: 700;
+  line-height: 1.25;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+
+/* Large decorative stat numbers */
+.type-stat {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1;
 }
+
+/* Primary body — comfortable reading size */
+.type-body {
+  font-family: var(--font-sans);
+  font-size: 1rem;            /* 16 px */
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* Secondary body — slightly smaller but still very readable */
+.type-body-sm {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;       /* 15 px */
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Captions, institutions, timestamps */
+.type-caption {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;       /* 13 px */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ── Legal modal prose ───────────────────────────────────────────────────── */
+
+.legal-prose h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #081A2A;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.legal-prose h3:first-child { margin-top: 0; }
+
+.legal-prose p {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(8, 26, 42, 0.65);
+  margin-bottom: 0.25rem;
+}
+
+.legal-prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-home-background); }
+::-webkit-scrollbar-thumb { background: var(--color-navy-900); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }

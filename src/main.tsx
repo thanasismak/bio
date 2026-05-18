@@ -4,13 +4,16 @@ import './index.css'
 import App from './App.tsx'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
+import { FontProvider } from './contexts/FontContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <LanguageProvider>
-        <App />
-      </LanguageProvider>
+      <FontProvider>
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
+      </FontProvider>
     </ThemeProvider>
   </StrictMode>,
 )

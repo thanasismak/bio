@@ -26,7 +26,7 @@ export default function Expertise() {
   ]
 
   return (
-    <section id="expertise" className="bg-navy-900 py-24 lg:py-36">
+    <section id="expertise" className="bg-home-page py-24 lg:py-36 border-t border-navy-950/[0.07]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 lg:mb-20">
           <motion.div
@@ -37,14 +37,14 @@ export default function Expertise() {
             className="flex items-center gap-3 mb-5"
           >
             <span className="h-px w-10 bg-teal-400" />
-            <span className="font-sans text-xs font-semibold tracking-[0.22em] text-teal-400 uppercase">{t.expertiseLabel}</span>
+            <span className="type-eyebrow text-teal-400">{t.expertiseLabel}</span>
           </motion.div>
           <motion.h2
             initial={reduced ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[1.05] text-white max-w-2xl"
+            className="type-h2 text-navy-950 max-w-2xl"
           >
             {t.expertiseHeading}
           </motion.h2>
@@ -62,7 +62,7 @@ export default function Expertise() {
               key={title}
               variants={reduced ? undefined : card}
               whileHover={reduced ? undefined : { y: -4, transition: { duration: 0.25 } }}
-              className="group relative p-7 rounded-2xl border border-white/[0.07] bg-navy-800/40 cursor-default transition-all duration-300 hover:border-teal-400/25 hover:bg-navy-800/70"
+              className="group relative p-7 rounded-2xl border border-navy-950/[0.08] bg-white cursor-default transition-all duration-300 hover:border-teal-400/30 hover:bg-surface hover:shadow-sm"
             >
               <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -72,10 +72,10 @@ export default function Expertise() {
                 <div className="w-11 h-11 rounded-xl bg-teal-400/[0.1] flex items-center justify-center mb-5 group-hover:bg-teal-400/[0.15] transition-colors duration-300">
                   <Icon className="w-5 h-5 text-teal-400" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-white mb-3 group-hover:text-teal-100 transition-colors duration-300">
+                <h3 className="type-h3 text-navy-950 mb-3 group-hover:text-primary transition-colors duration-300">
                   {title}
                 </h3>
-                <p className="font-sans text-sm text-white/65 leading-relaxed">{description}</p>
+                <p className="type-body-sm text-navy-950/60">{description}</p>
               </div>
             </motion.div>
           ))}

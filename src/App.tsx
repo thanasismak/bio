@@ -1,3 +1,4 @@
+import SeoManager from './seo/SeoManager'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TrustMetrics from './components/TrustMetrics'
@@ -16,6 +17,7 @@ import SectionDivider from './components/SectionDivider'
 export default function App() {
   return (
     <div className="min-h-screen bg-home-page overflow-x-hidden">
+      <SeoManager />
       <Navbar />
       <Hero />
       <TrustMetrics />

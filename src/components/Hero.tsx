@@ -74,7 +74,7 @@ export default function Hero() {
               className="flex items-center gap-3"
             >
               <span className="h-px w-10 bg-teal-400" />
-              <span className="text-teal-400 font-sans text-xs font-semibold tracking-[0.22em] uppercase">
+              <span className="type-eyebrow text-teal-400">
                 {t.heroSpecialty}
               </span>
             </motion.div>
@@ -85,12 +85,11 @@ export default function Hero() {
                 initial={reduced ? false : { opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.95, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display font-normal leading-[1.0] tracking-tight text-navy-950"
-                style={{ fontSize: 'clamp(3rem, 7.5vw, 6.8rem)' }}
+                className="type-h1 text-navy-950"
               >
-                <em className="font-medium">{t.heroLine1}</em>
+                <em className="italic">{t.heroLine1}</em>
                 <br />
-                <span className="text-navy-950/90 font-semibold">{t.heroLine2}</span>
+                <span className="text-navy-950/90">{t.heroLine2}</span>
               </motion.h1>
             </div>
 
@@ -99,7 +98,7 @@ export default function Hero() {
               initial={reduced ? false : { opacity: 0, x: -32 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.52, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="font-sans text-navy-950/70 text-lg font-light leading-relaxed max-w-[42ch]"
+              className="type-body text-navy-950/70 max-w-[42ch]"
             >
               {t.heroTagline}
             </motion.p>
@@ -180,8 +179,8 @@ export default function Hero() {
                   transition={{ duration: 0.7, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className="absolute bottom-0 left-0 right-0 px-5 pb-5 text-center"
                 >
-                  <p className="font-display text-lg font-medium text-white italic">Dr. Kyriakos Bekas</p>
-                  <p className="font-sans text-[10px] tracking-[0.2em] text-white/45 uppercase mt-1">M.D. · M.Sc. · FIFA</p>
+                  <p className="type-h3 text-white italic">Dr. Kyriakos Bekas</p>
+                  <p className="type-eyebrow text-white/45 mt-1">M.D. · M.Sc.</p>
                 </motion.div>
               </motion.div>
 
@@ -214,8 +213,8 @@ export default function Hero() {
                         <Icon className="w-4 h-4 text-teal-400" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <p className="font-display text-xl font-semibold text-white leading-none">{value}</p>
-                        <p className="font-sans text-[10px] text-white/65 mt-0.5 whitespace-nowrap">{label}</p>
+                        <p className="type-h3 text-white leading-none">{value}</p>
+                        <p className="type-caption text-white/65 mt-0.5 whitespace-nowrap">{label}</p>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -230,7 +229,7 @@ export default function Hero() {
         style={reduced ? {} : { opacity: cueOpacity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="font-sans text-[10px] tracking-[0.25em] text-navy-950/30 uppercase">{t.heroScroll}</span>
+        <span className="type-eyebrow text-navy-950/30">{t.heroScroll}</span>
         <motion.div
           animate={reduced ? {} : { y: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
