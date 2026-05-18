@@ -20,11 +20,17 @@ export default function App() {
       <SeoManager />
       <Navbar />
       <Hero />
+      <SectionDivider />
       <TrustMetrics />
+      <SectionDivider />
       <About />
+      <SectionDivider />
       <Hospitals />
+      <SectionDivider />
       <Expertise />
+      <SectionDivider />
       <CareApproach />
+      <SectionDivider />
       <Timeline />
       <SectionDivider />
       {/* <Testimonials /> */}
