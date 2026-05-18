@@ -1,6 +1,8 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import { GraduationCap, Building2, Trophy, BookOpen, Award } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { assetUrl } from '../utils/assets'
 import { useLanguage } from '../contexts/LanguageContext'
 
 type Side = 'left' | 'right'
@@ -15,8 +17,13 @@ interface TimelineItem {
 }
 
 export default function Timeline() {
+  const ref = useRef<HTMLElement>(null)
   const reduced = useReducedMotion()
   const { t } = useLanguage()
+
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const bgY     = useTransform(scrollYProgress, [0, 1], ['-30px', '60px'])
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.06, 0.97])
 
   const items: TimelineItem[] = [
     { year: '2025',      icon: Award,        title: t.tl1Title, institution: t.tl1Inst, description: t.tl1Desc, side: 'left' },
@@ -27,8 +34,26 @@ export default function Timeline() {
   ]
 
   return (
-    <section id="credentials" className="bg-surface py-24 lg:py-36 overflow-hidden border-t border-navy-950/[0.07]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} id="credentials" className="relative bg-surface py-24 lg:py-36 overflow-hidden">
+
+      {/* Full-section watermark */}
+      <motion.div
+        initial={reduced ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2.0, ease: 'easeOut' }}
+        style={reduced ? {} : { y: bgY, scale: bgScale }}
+        className="absolute inset-0 pointer-events-none select-none"
+      >
+        <img
+          src={assetUrl('/brand/ortho-content.jpg')}
+          alt=""
+          className="w-full h-full object-cover object-right"
+          style={{ opacity: 0.11 }}
+        />
+      </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 lg:mb-20">
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 16 }}

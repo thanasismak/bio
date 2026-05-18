@@ -1,17 +1,41 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import { CheckCircle } from 'lucide-react'
 import { assetUrl } from '../utils/assets'
 import { useLanguage } from '../contexts/LanguageContext'
 
 export default function About() {
+  const ref = useRef<HTMLElement>(null)
   const reduced = useReducedMotion()
   const { t } = useLanguage()
+
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const bgY     = useTransform(scrollYProgress, [0, 1], ['-30px', '60px'])
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.06, 0.97])
 
   const credentials = [t.aboutCred1, t.aboutCred2, t.aboutCred3, t.aboutCred4]
 
   return (
-    <section id="about" className="bg-surface py-24 lg:py-36 overflow-hidden border-t border-navy-950/[0.07]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} id="about" className="relative bg-surface py-24 lg:py-36 overflow-hidden border-t border-navy-950/[0.07]">
+
+      {/* Full-section watermark */}
+      <motion.div
+        initial={reduced ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2.0, ease: 'easeOut' }}
+        style={reduced ? {} : { y: bgY, scale: bgScale }}
+        className="absolute inset-0 pointer-events-none select-none"
+      >
+        <img
+          src={assetUrl('/brand/ortho-content.jpg')}
+          alt=""
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.11 }}
+        />
+      </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           {/* Left: profile card */}
@@ -22,6 +46,7 @@ export default function About() {
             transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
+            {/* Photo card */}
             <div
               className="relative rounded-3xl overflow-hidden border border-navy-950/[0.10] mx-auto max-w-sm lg:max-w-none"
               style={{ aspectRatio: '4/5' }}
@@ -38,8 +63,7 @@ export default function About() {
               <div
                 className="absolute bottom-0 left-0 right-0 p-6"
                 style={{ background: 'linear-gradient(to top, rgba(8,13,26,0.7) 0%, transparent 100%)' }}
-              >
-              </div>
+              />
             </div>
 
             <div

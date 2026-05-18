@@ -206,15 +206,15 @@ export default function Hero() {
                         ],
                       }}
                       transition={{ duration: 3.5 + d * 0.6, repeat: Infinity, ease: 'easeInOut', delay: d * 0.4 }}
-                      className="flex items-center gap-3 px-4 py-3 rounded-2xl border border-white/[0.08]"
+                      className="flex items-center gap-2 px-3 py-2 rounded-xl border border-white/[0.08]"
                       style={{ background: 'rgba(15,22,41,0.85)', backdropFilter: 'blur(16px)' }}
                     >
-                      <div className="w-8 h-8 rounded-xl bg-teal-400/[0.12] flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4 text-teal-400" strokeWidth={1.5} />
+                      <div className="w-6 h-6 rounded-lg bg-teal-400/[0.12] flex items-center justify-center shrink-0">
+                        <Icon className="w-3 h-3 text-teal-400" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <p className="type-h3 text-white leading-none">{value}</p>
-                        <p className="type-caption text-white/65 mt-0.5 whitespace-nowrap">{label}</p>
+                        <p className="font-sans text-sm font-bold text-white leading-none">{value}</p>
+                        <p className="font-sans text-[10px] text-white/60 mt-0.5 whitespace-nowrap">{label}</p>
                       </div>
                     </motion.div>
                   </motion.div>
