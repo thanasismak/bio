@@ -14,6 +14,7 @@ import BackToTop from './components/BackToTop'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import SectionDivider from './components/SectionDivider'
 import MotionLab from './components/MotionLab'
+import CookieConsent from './components/CookieConsent'
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
       <Footer />
       <BackToTop />
       <ThemeSwitcher />
+      <CookieConsent />
       {process.env.NODE_ENV === 'development' && <MotionLab />}
     </div>
   )

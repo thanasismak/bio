@@ -10,7 +10,7 @@ export default function About() {
   const { t } = useLanguage()
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const bgY     = useTransform(scrollYProgress, [0, 1], ['-30px', '60px'])
+  const bgY = useTransform(scrollYProgress, [0, 1], ['-30px', '60px'])
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.06, 0.97])
 
   const credentials = [t.aboutCred1, t.aboutCred2, t.aboutCred3, t.aboutCred4]
@@ -31,13 +31,12 @@ export default function About() {
           src={assetUrl('/brand/robot-artificial-intelligence.png')}
           alt=""
           className="w-full h-full object-cover"
-          style={{ objectPosition: '72% 20%', opacity: 0.28 }}
+          style={{ objectPosition: '0% 50%', opacity: 0.45 }}
         />
-        {/* Left fade */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to right, var(--color-surface) 0%, transparent 45%)',
+            background: 'linear-gradient(to right, var(--color-surface) 0%, var(--color-surface) 38%, transparent 58%)',
           }}
         />
         {/* Top + bottom fade — bottom fades out before section ends so image stops at the divider */}
