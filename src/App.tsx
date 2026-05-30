@@ -1,4 +1,5 @@
-import SeoManager from './seo/SeoManager'
+'use client'
+
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TrustMetrics from './components/TrustMetrics'
@@ -7,17 +8,16 @@ import Hospitals from './components/Hospitals'
 import Expertise from './components/Expertise'
 import CareApproach from './components/CareApproach'
 import Timeline from './components/Timeline'
-// import Testimonials from './components/Testimonials'
 import CallToAction from './components/CallToAction'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import SectionDivider from './components/SectionDivider'
+import MotionLab from './components/MotionLab'
 
 export default function App() {
   return (
     <div className="min-h-screen bg-home-page overflow-x-hidden">
-      <SeoManager />
       <Navbar />
       <Hero />
       <SectionDivider />
@@ -33,11 +33,11 @@ export default function App() {
       <SectionDivider />
       <Timeline />
       <SectionDivider />
-      {/* <Testimonials /> */}
       <CallToAction />
       <Footer />
       <BackToTop />
       <ThemeSwitcher />
+      <MotionLab />
     </div>
   )
 }

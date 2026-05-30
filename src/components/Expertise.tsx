@@ -5,12 +5,16 @@ import { useLanguage } from '../contexts/LanguageContext'
 
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
+  visible: { transition: { staggerChildren: 0.11, delayChildren: 0.05 } },
 }
 
 const card = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as number[] } },
+  hidden: { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
+  visible: {
+    clipPath: 'inset(0% 0 0 0)',
+    opacity: 1,
+    transition: { duration: 0.72, ease: [0.77, 0, 0.175, 1] as number[] },
+  },
 }
 
 export default function Expertise() {
@@ -30,20 +34,20 @@ export default function Expertise() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 lg:mb-20">
           <motion.div
-            initial={reduced ? false : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={reduced ? false : { clipPath: 'inset(0 0 100% 0)' }}
+            whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center gap-3 mb-5"
           >
             <span className="h-px w-10 bg-teal-400" />
             <span className="type-eyebrow text-teal-400">{t.expertiseLabel}</span>
           </motion.div>
           <motion.h2
-            initial={reduced ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={reduced ? false : { clipPath: 'inset(0 0 100% 0)' }}
+            whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="type-h2 text-navy-950 max-w-2xl"
           >
             {t.expertiseHeading}

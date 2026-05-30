@@ -38,12 +38,12 @@ export default function About() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Left: profile card */}
+          {/* Left: profile card — clip-path polygon wipe reveal */}
           <motion.div
-            initial={reduced ? false : { opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={reduced ? false : { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' }}
+            whileInView={{ clipPath: 'polygon(0 0, 110% 0, 110% 110%, 0 110%)' }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.1, ease: [0.77, 0, 0.175, 1] }}
             className="relative"
           >
             {/* Photo card */}

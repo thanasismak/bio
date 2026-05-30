@@ -3,3 +3,11 @@ node_modules/
 *.local
 .DS_Store
 .claude/
+
+# Next.js
+.next/
+out/
+
+# Old Vite build output
+dist/
+docs/

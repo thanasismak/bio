@@ -1,7 +1,22 @@
 import { motion, useReducedMotion } from 'motion/react'
+import type { Variants } from 'motion/react'
 import { UserCheck, ScanSearch, Dumbbell, Leaf } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
+
+const container: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.11, delayChildren: 0.05 } },
+}
+
+const card: Variants = {
+  hidden: { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
+  visible: {
+    clipPath: 'inset(0% 0 0 0)',
+    opacity: 1,
+    transition: { duration: 0.72, ease: [0.77, 0, 0.175, 1] },
+  },
+}
 
 export default function CareApproach() {
   const reduced = useReducedMotion()
@@ -19,34 +34,37 @@ export default function CareApproach() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="mb-16 lg:mb-20">
           <motion.div
-            initial={reduced ? false : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={reduced ? false : { clipPath: 'inset(0 0 100% 0)' }}
+            whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center gap-3 mb-5"
           >
             <span className="h-px w-10 bg-teal-400" />
             <span className="type-eyebrow text-teal-400">{t.careLabel}</span>
           </motion.div>
           <motion.h2
-            initial={reduced ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={reduced ? false : { clipPath: 'inset(0 0 100% 0)' }}
+            whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="type-h2 text-navy-950 max-w-xl"
           >
             {t.careHeading}
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-          {pillars.map(({ num, icon: Icon, title, description }, i) => (
+        <motion.div
+          variants={reduced ? undefined : container}
+          initial={reduced ? false : 'hidden'}
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8"
+        >
+          {pillars.map(({ num, icon: Icon, title, description }) => (
             <motion.div
               key={num}
-              initial={reduced ? false : { opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.75, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+              variants={reduced ? undefined : card}
               className="relative p-8 rounded-2xl border border-navy-950/[0.07] bg-white group hover:border-teal-400/30 hover:shadow-sm transition-all duration-300"
             >
               <div className="flex items-start gap-6">
@@ -68,7 +86,7 @@ export default function CareApproach() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
