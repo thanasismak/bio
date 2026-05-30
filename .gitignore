@@ -5,8 +5,7 @@ node_modules/
 
 # Next.js
 .next/
-# out/
+out/
 
-# Old Vite build output
+# Old Vite artifacts
 dist/
-docs/

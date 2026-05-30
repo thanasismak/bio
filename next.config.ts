@@ -1,9 +1,12 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // Static export only for production builds (Cloudflare Pages).
-  // next dev does not support output:'export' — omit it in development.
-  ...(process.env.NODE_ENV === 'production' && { output: 'export' }),
+  // Static export for production — outputs to docs/ so GitHub Pages can serve it directly.
+  // next dev does not support output:'export' — omitted in development.
+  ...(process.env.NODE_ENV === 'production' && {
+    output: 'export',
+    distDir: 'docs',
+  }),
   images: { unoptimized: true },
   eslint: { ignoreDuringBuilds: true },
 }
