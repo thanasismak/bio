@@ -28,23 +28,23 @@ export default function About() {
         className="absolute inset-0 pointer-events-none select-none"
       >
         <img
-          src={assetUrl('/brand/robo-ortho.jpg')}
+          src={assetUrl('/brand/robot-artificial-intelligence.png')}
           alt=""
           className="w-full h-full object-cover"
-          style={{ objectPosition: '72% center', opacity: 0.28 }}
+          style={{ objectPosition: '72% 20%', opacity: 0.28 }}
         />
-        {/* Left fade — keeps profile card area clean */}
+        {/* Left fade */}
         <div
           className="absolute inset-0"
           style={{
             background: 'linear-gradient(to right, var(--color-surface) 0%, transparent 45%)',
           }}
         />
-        {/* Top + bottom fade — blends edges into section */}
+        {/* Top + bottom fade — bottom fades out before section ends so image stops at the divider */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to bottom, var(--color-surface) 0%, transparent 18%, transparent 82%, var(--color-surface) 100%)',
+            background: 'linear-gradient(to bottom, var(--color-surface) 0%, transparent 15%, transparent 55%, var(--color-surface) 85%)',
           }}
         />
       </motion.div>
