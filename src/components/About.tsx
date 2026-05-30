@@ -18,20 +18,34 @@ export default function About() {
   return (
     <section ref={ref} id="about" className="relative bg-surface py-24 lg:py-36 overflow-hidden border-t border-navy-950/[0.07]">
 
-      {/* Full-section watermark */}
+      {/* Background — robotic knee, right-focused so the subject reads clearly */}
       <motion.div
         initial={reduced ? false : { opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 2.0, ease: 'easeOut' }}
+        transition={{ duration: 1.6, ease: 'easeOut' }}
         style={reduced ? {} : { y: bgY, scale: bgScale }}
         className="absolute inset-0 pointer-events-none select-none"
       >
         <img
-          src={assetUrl('/brand/ortho-content.jpg')}
+          src={assetUrl('/brand/robo-ortho.jpg')}
           alt=""
-          className="w-full h-full object-cover object-center"
-          style={{ opacity: 0.11 }}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: '72% center', opacity: 0.28 }}
+        />
+        {/* Left fade — keeps profile card area clean */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, var(--color-surface) 0%, transparent 45%)',
+          }}
+        />
+        {/* Top + bottom fade — blends edges into section */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to bottom, var(--color-surface) 0%, transparent 18%, transparent 82%, var(--color-surface) 100%)',
+          }}
         />
       </motion.div>
 

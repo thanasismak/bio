@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Calendar, MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
+import ContactForm from './ContactForm'
 
 export default function CallToAction() {
   const reduced = useReducedMotion()
@@ -76,30 +77,31 @@ export default function CallToAction() {
             </div>
           </motion.div>
 
-          {/* Right — contact info card */}
+          {/* Right — contact form + info */}
           <motion.div
             initial={reduced ? false : { opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="p-8 lg:p-10 rounded-2xl border border-navy-950/[0.10] bg-white shadow-sm"
+            className="space-y-6"
           >
-            <p className="type-eyebrow text-navy-950/40 mb-7">
-              {t.footerContactTitle}
-            </p>
+            {/* Contact form */}
+            <div className="p-8 lg:p-10 rounded-2xl border border-navy-950/[0.10] bg-white shadow-sm">
+              <p className="type-eyebrow text-navy-950/40 mb-6">Φόρμα Επικοινωνίας</p>
+              <ContactForm />
+            </div>
 
-            <ul className="space-y-6">
+            {/* Contact details strip */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {contactItems.map(({ icon: Icon, text }) => (
-                <li key={text} className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-navy-950/[0.05] flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
-                  </div>
-                  <span className="type-body-sm text-navy-950/65 pt-2">{text}</span>
-                </li>
+                <div key={text} className="flex items-center gap-3 px-4 py-3 rounded-xl border border-navy-950/[0.07] bg-white/60">
+                  <Icon className="w-4 h-4 text-primary shrink-0" strokeWidth={1.5} />
+                  <span className="type-caption text-navy-950/60">{text}</span>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            <div className="mt-8 pt-7 border-t border-navy-950/[0.08] flex items-center gap-3">
+            <div className="flex items-center gap-3 px-4">
               <span className="w-2 h-2 rounded-full bg-teal-400/80 animate-pulse shrink-0" />
               <span className="font-sans text-xs text-navy-950/45">{t.footerAccepting}</span>
             </div>

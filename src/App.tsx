@@ -37,7 +37,7 @@ export default function App() {
       <Footer />
       <BackToTop />
       <ThemeSwitcher />
-      <MotionLab />
+      {process.env.NODE_ENV === 'development' && <MotionLab />}
     </div>
   )
 }

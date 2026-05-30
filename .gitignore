@@ -1,5 +1,4 @@
 node_modules/
-/public/
 *.local
 .DS_Store
 .claude/

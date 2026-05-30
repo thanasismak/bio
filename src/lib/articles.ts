@@ -186,17 +186,30 @@ const ARTICLES: Article[] = [
 ]
 
 // ─── Data access functions ────────────────────────────────────────────────────
-// These functions are the interface for article data.
-// Swap the body with Supabase queries when the DB is ready.
+// When NOTION_TOKEN + NOTION_DATABASE_ID env vars are present, data comes from
+// Notion. Otherwise falls back to the static array above (dev / CI without keys).
+
+function notionConfigured(): boolean {
+  return Boolean(process.env.NOTION_TOKEN && process.env.NOTION_DATABASE_ID)
+}
 
 export async function getArticles(): Promise<Article[]> {
+  if (notionConfigured()) {
+    const { fetchArticlesFromNotion } = await import('./notion')
+    return fetchArticlesFromNotion()
+  }
   return ARTICLES.filter(a => a.published)
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  if (notionConfigured()) {
+    const { fetchArticleBySlug } = await import('./notion')
+    return fetchArticleBySlug(slug)
+  }
   return ARTICLES.find(a => a.slug === slug && a.published) ?? null
 }
 
 export async function getArticleSlugs(): Promise<string[]> {
-  return ARTICLES.filter(a => a.published).map(a => a.slug)
+  const articles = await getArticles()
+  return articles.map(a => a.slug)
 }

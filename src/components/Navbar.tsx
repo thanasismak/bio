@@ -10,6 +10,9 @@ const linkKeys = [
   { key: 'navCredentials' as const, href: '#credentials' },
 ]
 
+const ARTICLES_HREF = '/articles'
+const ARTICLES_LABEL = 'Άρθρα'
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const reduced = useReducedMotion()
@@ -45,6 +48,12 @@ export default function Navbar() {
               {t[key]}
             </a>
           ))}
+          <a
+            href={ARTICLES_HREF}
+            className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors duration-200"
+          >
+            {ARTICLES_LABEL}
+          </a>
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
@@ -92,6 +101,13 @@ export default function Navbar() {
                 {t[key]}
               </a>
             ))}
+            <a
+              href={ARTICLES_HREF}
+              onClick={() => setOpen(false)}
+              className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors"
+            >
+              {ARTICLES_LABEL}
+            </a>
             <div className="flex items-center gap-4 pt-2">
               <button
                 onClick={() => setLang(lang === 'el' ? 'en' : 'el')}

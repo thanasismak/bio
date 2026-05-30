@@ -42,6 +42,7 @@ export default function Footer() {
     { label: t.navExpertise,       href: '#expertise' },
     { label: t.navCredentials,     href: '#credentials' },
     { label: t.footerContactTitle, href: '#contact' },
+    { label: 'Άρθρα',             href: '/articles' },
   ]
 
   const services = [t.footerS1, t.footerS2, t.footerS3, t.footerS4, t.footerS5]
