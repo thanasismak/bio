@@ -100,6 +100,7 @@ export default function PhotoStrip() {
       className="relative h-screen overflow-hidden bg-navy-950"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      suppressHydrationWarning
     >
       {/* ── Full-fill image with per-slide crop + zoom ───────────────────── */}
       <AnimatePresence mode="sync">

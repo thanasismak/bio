@@ -81,14 +81,12 @@ export default function App() {
       <ThemeSwitcher />
       <CookieConsent />
       {process.env.NODE_ENV === 'development' && <MotionLab />}
-      {process.env.NODE_ENV === 'development' && (
-        <SectionReorder
-          order={order}
-          hidden={hidden}
-          onChange={setOrder}
-          onHiddenChange={setHidden}
-        />
-      )}
+      <SectionReorder
+        order={order}
+        hidden={hidden}
+        onChange={setOrder}
+        onHiddenChange={setHidden}
+      />
     </div>
   )
 }
