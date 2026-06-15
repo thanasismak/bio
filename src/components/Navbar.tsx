@@ -1,22 +1,28 @@
+'use client'
+
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Menu, X } from 'lucide-react'
 import { assetUrl } from '../utils/assets'
 import { useLanguage } from '../contexts/LanguageContext'
 
-const linkKeys = [
-  { key: 'navAbout' as const, href: '#about' },
-  { key: 'navExpertise' as const, href: '#expertise' },
-  { key: 'navCredentials' as const, href: '#credentials' },
-]
+type NavKey = 'navHome' | 'navAbout' | 'navGallery' | 'navExpertise' | 'navCredentials' | 'navArticles'
 
-const ARTICLES_HREF = '/articles'
-const ARTICLES_LABEL = 'Άρθρα'
+const linkKeys: { key: NavKey; href: string; external?: boolean }[] = [
+  { key: 'navHome',        href: '#hero'         },
+  { key: 'navAbout',       href: '#about'        },
+  { key: 'navGallery',     href: '#gallery'      },
+  { key: 'navExpertise',   href: '#expertise'    },
+  { key: 'navCredentials', href: '#credentials'  },
+  { key: 'navArticles',    href: '/articles', external: true },
+]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const reduced = useReducedMotion()
   const { t, lang, setLang } = useLanguage()
+
+  const close = () => setOpen(false)
 
   return (
     <motion.header
@@ -25,10 +31,11 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-0 left-0 right-0 z-50 bg-surface text-navy-950 border-b border-navy-900/10 shadow-sm"
     >
-      {/* Main nav row — fixed height so logo h-30 doesn't push the bar */}
+      {/* Desktop nav row */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+        {/* Logo */}
         <a
-          href="#home"
+          href="#hero"
           className="h-full flex items-center overflow-hidden opacity-90 hover:opacity-100 transition-opacity duration-300"
         >
           <img
@@ -38,26 +45,22 @@ export default function Navbar() {
           />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          {linkKeys.map(({ key, href }) => (
+        {/* Desktop links */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {linkKeys.map(({ key, href, external }) => (
             <a
               key={href}
               href={href}
-              className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors duration-200"
+              {...(external ? { target: '_self' } : {})}
+              className="type-body-sm font-medium text-navy-950/70 hover:text-navy-950 transition-colors duration-200"
             >
               {t[key]}
             </a>
           ))}
-          <a
-            href={ARTICLES_HREF}
-            className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors duration-200"
-          >
-            {ARTICLES_LABEL}
-          </a>
         </nav>
 
+        {/* Desktop actions */}
         <div className="hidden lg:flex items-center gap-3">
-          {/* Language toggle */}
           <button
             onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
             className="font-sans text-xs font-semibold tracking-widest text-navy-950/50 hover:text-navy-950 transition-colors duration-200 cursor-pointer px-2 py-1"
@@ -73,8 +76,9 @@ export default function Navbar() {
           </a>
         </div>
 
+        {/* Mobile burger */}
         <button
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen(o => !o)}
           className="lg:hidden text-navy-950/80 hover:text-navy-950 transition-colors cursor-pointer"
           aria-label="Toggle menu"
         >
@@ -82,7 +86,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu — outside the fixed-height row, so it expands freely */}
+      {/* Mobile menu */}
       {open && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -95,20 +99,14 @@ export default function Navbar() {
               <a
                 key={href}
                 href={href}
-                onClick={() => setOpen(false)}
+                onClick={close}
                 className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors"
               >
                 {t[key]}
               </a>
             ))}
-            <a
-              href={ARTICLES_HREF}
-              onClick={() => setOpen(false)}
-              className="type-body-sm font-medium text-navy-950/80 hover:text-navy-950 transition-colors"
-            >
-              {ARTICLES_LABEL}
-            </a>
-            <div className="flex items-center gap-4 pt-2">
+
+            <div className="flex items-center gap-4 pt-2 border-t border-navy-900/10">
               <button
                 onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
                 className="font-sans text-xs font-semibold tracking-widest text-navy-950/50 cursor-pointer"
@@ -117,7 +115,7 @@ export default function Navbar() {
               </button>
               <a
                 href="#contact"
-                onClick={() => setOpen(false)}
+                onClick={close}
                 className="flex-1 px-6 py-3 bg-primary text-navy-950 text-sm font-sans font-semibold rounded-full text-center"
               >
                 {t.navBook}

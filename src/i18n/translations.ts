@@ -2,9 +2,13 @@ export type Lang = 'el' | 'en'
 
 export interface Translations {
   // Navbar
+  navHome: string
   navAbout: string
+  navGallery: string
   navExpertise: string
   navCredentials: string
+  navArticles: string
+  navContact: string
   navBook: string
 
   // Hero
@@ -117,9 +121,13 @@ export interface Translations {
 
 export const el: Translations = {
   // Navbar
+  navHome: 'Αρχική',
   navAbout: 'Σχετικά',
+  navGallery: 'Εκπαίδευση',
   navExpertise: 'Ειδικότητες',
   navCredentials: 'Βιογραφικό',
+  navArticles: 'Άρθρα',
+  navContact: 'Επικοινωνία',
   navBook: 'Ραντεβού',
 
   // Hero
@@ -252,9 +260,13 @@ export const el: Translations = {
 
 export const en: Translations = {
   // Navbar
+  navHome: 'Home',
   navAbout: 'About',
+  navGallery: 'Gallery',
   navExpertise: 'Expertise',
   navCredentials: 'Credentials',
+  navArticles: 'Articles',
+  navContact: 'Contact',
   navBook: 'Book Consultation',
 
   // Hero
