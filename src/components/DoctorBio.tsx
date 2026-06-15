@@ -4,7 +4,7 @@ import { Award, Trophy, Users, ChevronDown } from 'lucide-react'
 import { assetUrl } from '../utils/assets'
 import { useLanguage } from '../contexts/LanguageContext'
 
-export default function Hero() {
+export default function DoctorBio() {
   const ref = useRef<HTMLElement>(null)
   const reduced = useReducedMotion()
   const { t } = useLanguage()
@@ -72,7 +72,6 @@ export default function Hero() {
             style={reduced ? {} : { y: leftY, opacity: leftOpacity }}
             className="space-y-8"
           >
-            {/* Specialty pill */}
             <motion.div
               initial={reduced ? false : { opacity: 0, x: -28 }}
               animate={{ opacity: 1, x: 0 }}
@@ -85,7 +84,6 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Hero headline — replaces doctor name since logo shows it */}
             <div className="overflow-hidden">
               <motion.h1
                 initial={reduced ? false : { opacity: 0, x: -50 }}
@@ -99,7 +97,6 @@ export default function Hero() {
               </motion.h1>
             </div>
 
-            {/* Tagline */}
             <motion.p
               initial={reduced ? false : { opacity: 0, x: -32 }}
               animate={{ opacity: 1, x: 0 }}
@@ -109,7 +106,6 @@ export default function Hero() {
               {t.heroTagline}
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               initial={reduced ? false : { opacity: 0, x: -24 }}
               animate={{ opacity: 1, x: 0 }}
