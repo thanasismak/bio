@@ -61,6 +61,11 @@ export function parseBlocks(blocks: any[]): ArticleSection[] {
         if (text.trim()) sections.push({ type: 'p', text })
         break
       }
+      case 'heading_1': {
+        flushList()
+        sections.push({ type: 'h2', text: plainText(block.heading_1?.rich_text) })
+        break
+      }
       case 'heading_2': {
         flushList()
         sections.push({ type: 'h2', text: plainText(block.heading_2?.rich_text) })

@@ -183,6 +183,85 @@ const ARTICLES: Article[] = [
       },
     ],
   },
+  {
+    slug: 'knee-arthroscopy-patient-guide',
+    tag: 'Surgery',
+    tagColor: 'text-blue-700 bg-blue-50',
+    title: 'Knee Arthroscopy: What to Expect Before, During and After Surgery',
+    excerpt: 'From pre-operative preparation through full recovery — a step-by-step guide to keyhole knee surgery for patients and families.',
+    date: 'June 10, 2026',
+    dateISO: '2026-06-10',
+    readTime: '8 min',
+    ogImage: '/assets/arthroscopy-training-screen.jpg',
+    published: true,
+    sections: [
+      {
+        type: 'p',
+        text: 'Knee arthroscopy is a minimally invasive surgical technique that allows an orthopaedic surgeon to diagnose and treat a wide range of joint problems through two or three incisions barely larger than a keyhole. Instead of opening the entire joint, a fibre-optic camera (the arthroscope) projects live high-definition video inside the knee onto a monitor while micro-instruments work through the other portals.',
+      },
+      {
+        type: 'h2',
+        text: 'Who Needs Arthroscopic Surgery?',
+      },
+      {
+        type: 'p',
+        text: 'Not every knee problem requires surgery, and arthroscopy is not a shortcut to avoid rehabilitation. However, when structural damage is confirmed on MRI and conservative management has plateaued, arthroscopy offers precise diagnosis and treatment in a single session.',
+      },
+      {
+        type: 'ul',
+        text: '',
+        items: [
+          'Torn meniscus — medial or lateral (repair or partial resection)',
+          'Anterior or posterior cruciate ligament reconstruction (ACL/PCL)',
+          'Articular cartilage damage — microfracture or chondroplasty',
+          'Chronic synovitis and persistent joint inflammation',
+          'Loose bodies causing mechanical locking of the joint',
+          'Plica syndrome and patellofemoral alignment disorders',
+        ],
+      },
+      {
+        type: 'blockquote',
+        text: 'Arthroscopy transformed orthopaedic surgery. We can diagnose and treat conditions in a single session that once required a large open incision and weeks of hospital recovery.',
+        attribution: 'Dr. Kyriakos Bekas',
+      },
+      {
+        type: 'h2',
+        text: 'The Day of Surgery',
+      },
+      {
+        type: 'p',
+        text: 'Most procedures are performed under general or spinal anaesthesia and take between 30 minutes and 1.5 hours depending on the complexity of the repair. You will arrive fasting, be admitted to a day-surgery unit, and in the majority of cases go home the same day. Before discharge, the nursing team will brief you on wound care, icing protocols, and the correct use of crutches.',
+      },
+      {
+        type: 'h2',
+        text: 'Recovery Milestones',
+      },
+      {
+        type: 'ul',
+        text: '',
+        items: [
+          'Days 1–7: Elevation, ice, compression. Gentle range-of-motion exercises begin.',
+          'Weeks 2–4: Crutches discarded for most patients. Physiotherapy commences.',
+          'Weeks 4–8: Progressive strengthening, balance and proprioceptive training.',
+          'Months 2–3: Return to low-impact activities — cycling and swimming.',
+          'Months 6–12: Return to competitive sport, depending on procedure performed.',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'Returning to Sport',
+      },
+      {
+        type: 'p',
+        text: 'The timeline for sport re-entry depends heavily on the procedure performed. A simple meniscectomy may allow return in as little as 4–6 weeks. ACL reconstruction, however, requires 9–12 months of structured rehabilitation before competitive sport is safe. The decision is guided by objective functional criteria — quadriceps strength symmetry, single-leg hop tests, and psychological readiness scales — not the calendar alone.',
+      },
+      {
+        type: 'blockquote',
+        text: 'No two patients heal at exactly the same rate. Our goal is not to rush you back, but to return you stronger and more resilient than you were before the injury.',
+        attribution: 'Dr. Kyriakos Bekas',
+      },
+    ],
+  },
 ]
 
 // ─── Data access functions ────────────────────────────────────────────────────

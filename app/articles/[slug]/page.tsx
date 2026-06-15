@@ -2,26 +2,28 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getArticleBySlug, getArticleSlugs, type ArticleSection } from '../../../src/lib/articles'
-import { ArrowLeft, Calendar, Clock, Copy, ExternalLink, Share2, ChevronRight, BookOpen } from 'lucide-react'
+import { assetUrl } from '../../../src/utils/assets'
+import { ArrowLeft, Calendar, Clock, ChevronRight } from 'lucide-react'
+import ShareBar from '../ShareBar'
 
-// ─── Static paths (build-time generation) ────────────────────────────────────
+// ─── Static paths ─────────────────────────────────────────────────────────────
 
 export async function generateStaticParams() {
   const slugs = await getArticleSlugs()
   return slugs.map(slug => ({ slug }))
 }
 
-// ─── Per-article SEO metadata ─────────────────────────────────────────────────
+// ─── SEO metadata ─────────────────────────────────────────────────────────────
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const { slug } = await params
   const article = await getArticleBySlug(slug)
-  if (!article) return { title: 'Άρθρο δεν βρέθηκε' }
+  if (!article) return { title: 'Article not found' }
 
   return {
-    title: article.title,
+    title: `${article.title} | Dr. Kyriakos Bekas`,
     description: article.excerpt,
     openGraph: {
       type: 'article',
@@ -43,37 +45,48 @@ export async function generateMetadata(
   }
 }
 
-// ─── Article content renderer ─────────────────────────────────────────────────
+// ─── Content renderer ─────────────────────────────────────────────────────────
 
 function RenderSection({ section }: { section: ArticleSection }) {
   switch (section.type) {
     case 'h2':
       return (
-        <h2 className="text-xl font-semibold text-navy-950 pt-6 pb-1 border-t border-navy-950/[0.07] mt-6">
-          {section.text}
-        </h2>
+        <div className="pt-10 pb-1">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="h-px w-6 bg-teal-400 shrink-0" />
+            <h2 className="text-xl font-semibold text-navy-950">{section.text}</h2>
+          </div>
+        </div>
       )
     case 'h3':
-      return <h3 className="text-lg font-semibold text-navy-950 mt-5">{section.text}</h3>
+      return <h3 className="text-lg font-semibold text-navy-950 mt-6 mb-1">{section.text}</h3>
     case 'blockquote':
       return (
-        <blockquote className="pl-5 py-1 my-6 border-l-2 border-teal-400">
-          <p className="type-body text-navy-950/75 italic font-medium leading-relaxed">
-            &ldquo;{section.text}&rdquo;
+        <blockquote className="relative my-8 rounded-2xl border border-navy-950/[0.07] bg-navy-950/[0.03] px-8 py-7 overflow-hidden">
+          <div
+            className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl"
+            style={{ background: 'linear-gradient(to bottom, #2dd4bf, #2dd4bf80)' }}
+          />
+          <div className="absolute top-3 left-6 text-6xl text-teal-400/20 font-serif leading-none select-none">&ldquo;</div>
+          <p className="type-body text-navy-950/80 italic font-medium leading-relaxed pt-4">
+            {section.text}
           </p>
           {section.attribution && (
-            <footer className="type-caption text-navy-950/35 mt-2 not-italic">
-              — {section.attribution}
+            <footer className="mt-4 flex items-center gap-2 type-caption text-navy-950/40 not-italic">
+              <span className="h-px w-5 bg-teal-400/50" />
+              {section.attribution}
             </footer>
           )}
         </blockquote>
       )
     case 'ul':
       return (
-        <ul className="space-y-2 my-2">
+        <ul className="space-y-3 my-4">
           {(section.items ?? []).map((item, i) => (
             <li key={i} className="flex items-start gap-3 type-body-sm text-navy-950/70">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0 mt-2" />
+              <span className="w-5 h-5 rounded-full bg-teal-400/10 flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+              </span>
               {item}
             </li>
           ))}
@@ -96,115 +109,131 @@ export default async function ArticlePage(
   return (
     <div className="min-h-screen bg-home-page">
 
-      {/* ── Navbar ──────────────────────────────────────────────────────── */}
-      <header className="border-b border-navy-950/[0.07] bg-white/80 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/articles"
-            className="flex items-center gap-2 type-caption text-navy-950/50 hover:text-navy-950 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" /> Όλα τα Άρθρα
-          </Link>
-          <span className={`hidden sm:inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold type-eyebrow ${article.tagColor}`}>
+      {/* ── Hero banner ─────────────────────────────────────────────────── */}
+      <div className="relative h-[300px] md:h-[380px] overflow-hidden">
+        <img
+          src={assetUrl('/assets/surgery-operating-room.jpg')}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 40%' }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(8,13,26,0.50) 0%, rgba(8,13,26,0.92) 100%)' }}
+        />
+
+        <div className="absolute top-0 left-0 right-0">
+          <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+            <Link
+              href="/articles"
+              className="flex items-center gap-2 type-caption text-white/50 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" /> All Articles
+            </Link>
+            <span className={`hidden sm:inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold type-eyebrow ${article.tagColor}`}>
+              {article.tag}
+            </span>
+          </div>
+        </div>
+
+        <div className="absolute inset-x-0 bottom-0 max-w-3xl mx-auto px-6 pb-10">
+          <span className={`sm:hidden inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold type-eyebrow mb-4 ${article.tagColor}`}>
             {article.tag}
           </span>
+          <h1 className="text-2xl md:text-4xl font-semibold text-white leading-tight max-w-2xl">
+            {article.title}
+          </h1>
         </div>
-      </header>
+      </div>
 
-      <article className="max-w-3xl mx-auto px-6 pt-16 pb-24">
+      <article className="max-w-3xl mx-auto px-6 pb-24">
 
-        {/* ── Article header ─────────────────────────────────────────────── */}
-        <span className={`inline-block sm:hidden px-2.5 py-1 rounded-full text-[10px] font-semibold type-eyebrow mb-4 ${article.tagColor}`}>
-          {article.tag}
-        </span>
-        <h1 className="text-3xl lg:text-4xl font-semibold text-navy-950 leading-tight mb-6">
-          {article.title}
-        </h1>
-
-        {/* ── Author + meta ──────────────────────────────────────────────── */}
-        <div className="flex items-center gap-4 py-5 border-t border-b border-navy-950/[0.07] mb-8">
-          <div className="w-10 h-10 rounded-full bg-teal-400/15 flex items-center justify-center shrink-0 text-base">
-            👨‍⚕️
+        {/* ── Author + meta ─────────────────────────────────────────────── */}
+        <div className="flex items-center gap-4 py-6 border-b border-navy-950/[0.07] mb-10">
+          <div className="relative shrink-0">
+            <img
+              src={assetUrl('/profile/hero.jpeg')}
+              alt="Dr. Kyriakos Bekas"
+              className="w-12 h-12 rounded-full object-cover object-top"
+              style={{ border: '2px solid rgba(45,212,191,0.35)' }}
+            />
+            <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-teal-400 border-2 border-white" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="type-body-sm text-navy-950 font-semibold">Dr. Kyriakos Bekas</p>
-            <p className="type-caption text-navy-950/40">Ορθοπαιδικός Χειρουργός · M.D. · M.Sc. · FIFA</p>
+            <p className="type-caption text-navy-950/40">Orthopaedic Surgeon · M.D. · M.Sc. · FIFA</p>
           </div>
-          <div className="hidden sm:flex items-center gap-4 text-navy-950/35 shrink-0">
+          <div className="hidden sm:flex items-center gap-4 text-navy-950/30 shrink-0">
             <span className="flex items-center gap-1.5 type-caption">
               <Calendar className="w-3 h-3" /> {article.date}
             </span>
             <span className="flex items-center gap-1.5 type-caption">
-              <Clock className="w-3 h-3" /> {article.readTime}
+              <Clock className="w-3 h-3" /> {article.readTime || '5 min'}
             </span>
           </div>
         </div>
 
-        {/* ── Body ──────────────────────────────────────────────────────── */}
-        <div className="space-y-4">
+        {/* ── Excerpt lead ──────────────────────────────────────────────── */}
+        {article.excerpt && (
+          <p className="type-body text-navy-950/60 leading-relaxed text-lg mb-8 font-medium border-l-2 border-teal-400/40 pl-5">
+            {article.excerpt}
+          </p>
+        )}
+
+        {/* ── Body ─────────────────────────────────────────────────────── */}
+        <div className="space-y-5">
           {article.sections.map((section, i) => (
             <RenderSection key={i} section={section} />
           ))}
         </div>
 
-        {/* ── Tags ──────────────────────────────────────────────────────── */}
-        <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-navy-950/[0.07]">
+        {/* ── Tags ─────────────────────────────────────────────────────── */}
+        <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-navy-950/[0.07]">
           <span className={`px-3 py-1 rounded-full type-caption ${article.tagColor}`}>{article.tag}</span>
           <span className="px-3 py-1 rounded-full bg-navy-950/[0.05] type-caption text-navy-950/50">Dr. Kyriakos Bekas</span>
-          <span className="px-3 py-1 rounded-full bg-navy-950/[0.05] type-caption text-navy-950/50">Ορθοπαιδική</span>
+          <span className="px-3 py-1 rounded-full bg-navy-950/[0.05] type-caption text-navy-950/50">Orthopaedics</span>
         </div>
 
-        {/* ── Share ─────────────────────────────────────────────────────── */}
+        {/* ── Share ────────────────────────────────────────────────────── */}
         <div className="mt-8 pt-8 border-t border-navy-950/[0.07]">
-          <p className="type-eyebrow text-navy-950/40 mb-4">Μοιραστείτε το άρθρο</p>
-          <div className="flex flex-wrap items-center gap-3">
-            <ShareButton
-              icon={<Copy className="w-3.5 h-3.5" />}
-              label="Αντιγραφή συνδέσμου"
-              hoverColor="hover:border-teal-400/40 hover:bg-teal-50/50 hover:text-teal-600"
-            />
-            <ShareButton
-              icon={<ExternalLink className="w-3.5 h-3.5" />}
-              label="LinkedIn"
-              hoverColor="hover:border-blue-400/40 hover:bg-blue-50/50 hover:text-blue-600"
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=https://www.drbekas.gr/articles/${slug}`}
-            />
-            <ShareButton
-              icon={<Share2 className="w-3.5 h-3.5" />}
-              label="Instagram"
-              hoverColor="hover:border-pink-400/40 hover:bg-pink-50/50 hover:text-pink-600"
-            />
-          </div>
+          <p className="type-eyebrow text-navy-950/40 mb-4">Share this article</p>
+          <ShareBar slug={slug} />
         </div>
 
-        {/* ── CTA ───────────────────────────────────────────────────────── */}
-        <div className="mt-12 p-8 rounded-2xl bg-navy-950 relative overflow-hidden">
+        {/* ── CTA ──────────────────────────────────────────────────────── */}
+        <div className="mt-12 rounded-2xl bg-navy-950 relative overflow-hidden">
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 60% 80% at 10% 50%, rgba(65,194,188,0.10) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(ellipse 60% 80% at 10% 50%, rgba(65,194,188,0.12) 0%, transparent 65%)' }}
           />
-          <div className="relative flex flex-col sm:flex-row sm:items-center gap-6">
+          <img
+            src={assetUrl('/assets/surgery-operating-room.jpg')}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            style={{ opacity: 0.08, objectPosition: 'center 40%' }}
+          />
+          <div className="relative p-8 flex flex-col sm:flex-row sm:items-center gap-6">
             <div className="flex-1">
-              <p className="type-eyebrow text-teal-400 mb-2">Έχετε ερωτήσεις;</p>
-              <h3 className="type-h3 text-white mb-2">Κλείστε Ραντεβού</h3>
-              <p className="type-body-sm text-white/45">Εξειδικευμένη αξιολόγηση και εξατομικευμένο πλάνο θεραπείας.</p>
+              <p className="type-eyebrow text-teal-400 mb-2">Have questions?</p>
+              <h3 className="type-h3 text-white mb-2">Book an Appointment</h3>
+              <p className="type-body-sm text-white/45">Expert assessment and a personalised treatment plan.</p>
             </div>
             <Link
               href="/#contact"
               className="inline-flex items-center gap-2 px-6 py-3 bg-teal-400 text-navy-950 font-semibold rounded-full text-sm hover:bg-teal-300 transition-colors duration-200 shrink-0"
             >
-              Επικοινωνία <ChevronRight className="w-4 h-4" />
+              Contact <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
 
-        {/* ── Back ──────────────────────────────────────────────────────── */}
+        {/* ── Back ─────────────────────────────────────────────────────── */}
         <div className="mt-12 pt-8 border-t border-navy-950/[0.07] flex items-center justify-between">
           <Link
             href="/articles"
             className="flex items-center gap-2 type-body-sm text-navy-950/40 hover:text-teal-600 transition-colors"
           >
-            <BookOpen className="w-4 h-4" /> Όλα τα Άρθρα
+            ← All Articles
           </Link>
           <Link
             href="/"
@@ -216,30 +245,5 @@ export default async function ArticlePage(
 
       </article>
     </div>
-  )
-}
-
-// ─── Share button (client interaction handled via href or JS) ─────────────────
-
-function ShareButton({
-  icon, label, hoverColor, href,
-}: {
-  icon: React.ReactNode
-  label: string
-  hoverColor: string
-  href?: string
-}) {
-  const cls = `flex items-center gap-2 px-4 py-2 rounded-full border border-navy-950/[0.10] bg-white type-caption text-navy-950/60 transition-all duration-200 ${hoverColor}`
-  if (href) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
-        {icon} {label}
-      </a>
-    )
-  }
-  return (
-    <button className={cls + ' cursor-pointer'}>
-      {icon} {label}
-    </button>
   )
 }
