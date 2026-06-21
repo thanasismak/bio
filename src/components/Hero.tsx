@@ -91,7 +91,7 @@ export default function Hero() {
                 initial={reduced ? false : { opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.95, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                className="type-h1 text-navy-950"
+                className="type-h2 text-navy-950"
               >
                 <em className="italic">{t.heroLine1}</em>
                 <br />

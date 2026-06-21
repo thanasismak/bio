@@ -9,20 +9,26 @@ export default function Hospitals() {
   const hospitals = [
     {
       src: assetUrl('/hospitals/biokliniki.jpg'),
-      alt: 'Bioclinic Athens',
-      name: 'Bioclinic Athens',
+      alt: 'Βιοκλινική Αθηνών',
+      name: 'Βιοκλινική Αθηνών',
       description: t.hospitalBioclinicDesc,
     },
     {
+      src: assetUrl('/hospitals/euroklini.jpg'),
+      alt: 'Ευρωκλινική',
+      name: 'Ευρωκλινική',
+      description: t.hospitalEurokliniDesc,
+    },
+    {
       src: assetUrl('/hospitals/ygeia.jpg'),
-      alt: 'Υγεία',
-      name: 'Υγεία Hospital',
+      alt: 'Νοσοκομείο ΥΓΕΙΑ',
+      name: 'Νοσοκομείο «ΥΓΕΙΑ»',
       description: t.hospitalYgeiaDesc,
     },
   ]
 
   return (
-    <section className="bg-surface py-20 lg:py-28 overflow-hidden">
+    <section id="hospitals" className="bg-surface py-20 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
@@ -57,8 +63,8 @@ export default function Hospitals() {
                 transition={{ duration: 0.7, delay: i * 0.14, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="group flex items-center gap-6 p-6 rounded-2xl border border-navy-950/[0.07] bg-white hover:border-teal-400/30 hover:shadow-sm transition-all duration-300"
               >
-                <div className="w-28 h-20 bg-white rounded-xl flex items-center justify-center shrink-0 border border-navy-950/[0.06] shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                  <img src={src} alt={alt} className="max-h-10 max-w-[5.5rem] object-contain" />
+                <div className="w-32 h-24 bg-white rounded-xl flex items-center justify-center shrink-0 border border-navy-950/[0.06] shadow-sm group-hover:shadow-md transition-shadow duration-300 p-2">
+                  <img src={src} alt={alt} className="max-h-16 max-w-[7rem] object-contain" />
                 </div>
                 <div>
                   <p className="type-h3 text-navy-950">{name}</p>

@@ -4,10 +4,10 @@ export interface Translations {
   // Navbar
   navHome: string
   navAbout: string
-  navGallery: string
+  navHospitals: string
   navExpertise: string
   navCredentials: string
-  navArticles: string
+  navPublications: string
   navContact: string
   navBook: string
 
@@ -38,6 +38,9 @@ export interface Translations {
   aboutHeading: string
   aboutPara1: string
   aboutPara2: string
+  aboutPara3: string
+  aboutPara4: string
+  aboutPara5: string
   aboutCred1: string
   aboutCred2: string
   aboutCred3: string
@@ -48,6 +51,7 @@ export interface Translations {
   hospitalsHeading: string
   hospitalsDesc: string
   hospitalBioclinicDesc: string
+  hospitalEurokliniDesc: string
   hospitalYgeiaDesc: string
 
   // Expertise
@@ -63,6 +67,8 @@ export interface Translations {
   expertiseS4Desc: string
   expertiseS5Title: string
   expertiseS5Desc: string
+  expertiseS6Title: string
+  expertiseS6Desc: string
 
   // CareApproach
   careLabel: string
@@ -123,19 +129,19 @@ export const el: Translations = {
   // Navbar
   navHome: 'Αρχική',
   navAbout: 'Σχετικά',
-  navGallery: 'Εκπαίδευση',
+  navHospitals: 'Νοσοκομεία',
   navExpertise: 'Ειδικότητες',
   navCredentials: 'Βιογραφικό',
-  navArticles: 'Άρθρα',
+  navPublications: 'Δημοσιεύσεις',
   navContact: 'Επικοινωνία',
   navBook: 'Ραντεβού',
 
   // Hero
   heroSpecialty: 'Ορθοπαιδικός Χειρουργός',
-  heroLine1: 'Ακρίβεια',
-  heroLine2: 'στην Ορθοπαιδική',
+  heroLine1: 'Επιστημονική, εξειδικευμένη φροντίδα.',
+  heroLine2: 'Αφοσίωση στον ασθενή',
   heroTagline:
-    'Εξειδικευμένες ορθοπαιδικές επεμβάσεις για αθλητικές κακώσεις και αρθροπλαστική. Πιστοποιημένος FIFA. Για αθλητές υψηλών επιδόσεων και ασθενείς κάθε ηλικίας.',
+    'Σύγχρονη ορθοπαιδική προσέγγιση, καινοτόμες τεχνικές με επίκεντρο τον ασθενή',
   heroCta: 'Κλείστε Ραντεβού',
   heroCtaExpertise: 'Τομείς Εξειδίκευσης',
   heroScroll: 'Κύλιση',
@@ -155,23 +161,29 @@ export const el: Translations = {
 
   // About
   aboutLabel: 'Σχετικά',
-  aboutHeading: 'Δέκα χρόνια εξειδίκευσης στο σταυροδρόμι αθλητισμού και χειρουργικής',
+  aboutHeading: 'Δρ. Κυριάκος Μπέκας — MD, MSc',
   aboutPara1:
-    'Ο Dr. Κυριάκος Μπέκας είναι Ορθοπαιδικός Χειρουργός με εξειδίκευση στις αθλητικές κακώσεις και την αρθροπλαστική. Αποφοίτησε από τη Στρατιωτική Σχολή Αξιωματικών (2015), ολοκλήρωσε την ειδικότητά του σε κορυφαία νοσοκομεία της Αθήνας — 401 ΓΣΝΑ και Γ. Γεννηματάς — και πραγματοποίησε προχωρημένη εκπαίδευση στο SportClinic Zurich Hirslanden της Ελβετίας.',
+    'Ο Κυριάκος Μπέκας είναι Ορθοπαιδικός Χειρουργός με εξειδίκευση στις αθλητικές κακώσεις και τη χειρουργική αποκατάσταση των αρθρώσεων.',
   aboutPara2:
-    'Κατέχει Μεταπτυχιακό στις Μεταβολικές Παθήσεις των Οστών από το ΕΚΠΑ και πιστοποίηση FIFA Football Medicine. Ασκεί ιδιωτικό ιατρείο στη Bioclinic Athens και είναι ενεργό μέλος της ESSKA και του AO Foundation.',
-  aboutCred1: 'Ιατρός, Στρατιωτική Σχολή Αξιωματικών, Αθήνα (2015)',
-  aboutCred2: 'MSc Μεταβολικών Παθήσεων Οστών, ΕΚΠΑ',
-  aboutCred3: 'Δίπλωμα FIFA Football Medicine — FIFA Medical Network',
-  aboutCred4: 'Μέλος ESSKA & AO Foundation',
+    'Αποφοίτησε από το Ιατρικό Τμήμα της Στρατιωτικής Σχολής Αξιωματικών Σωμάτων το 2015 και ειδικεύθηκε στην Ορθοπαιδική & Τραυματολογία σε κορυφαία νοσοκομεία, όπως το 401 ΓΣΝΑ, το ΓΝΑ «Γ. Γεννηματάς» και το ΓΝ Παίδων Αθηνών «Π. & Α. Κυριακού», ενώ πραγματοποίησε μετεκπαίδευση με υποτροφία στο SportClinic Zurich Hirslanden στην Ελβετία.',
+  aboutPara3:
+    'Είναι κάτοχος Μεταπτυχιακού Διπλώματος στα «Μεταβολικά Νοσήματα των Οστών» από το Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών και πιστοποιημένος ιατρός του Αθλητιατρικού Τμήματος της FIFA.',
+  aboutPara4:
+    'Είναι ενεργό μέλος διεθνών επιστημονικών οργανισμών όπως η ESSKA και η AO Foundation.',
+  aboutPara5:
+    'Από το 2026 υπηρετεί ως Επιμελητής στο 401 ΓΣΝΑ και διατηρεί ιδιωτικό ιατρείο στη Βιοκλινική Αθηνών. Αναλαμβάνει την αντιμετώπιση μυοσκελετικών τραυματισμών, αρθροσκοπικών επεμβάσεων (ώμου και γόνατος), αρθροπλαστικών ισχίου και γόνατος, καθώς και την εφαρμογή σύγχρονων βιολογικών θεραπειών και εξατομικευμένων λύσεων με βάση τις ανάγκες και το προφίλ κάθε ασθενούς.',
+  aboutCred1: 'Ιατρικό Τμήμα Στρατιωτικής Σχολής Αξιωματικών Σωμάτων (ΣΣΑΣ), Θεσσαλονίκη, 2015',
+  aboutCred2: 'Δίπλωμα FIFA Football Medicine, 2019',
+  aboutCred3: 'Μεταπτυχιακό Δίπλωμα (MSc) «Μεταβολικά Νοσήματα των Οστών» Ιατρικής Σχολής ΕΚΠΑ, Αθήνα, 2024',
+  aboutCred4:
+    'Ενεργό μέλος της Ελληνικής Εταιρείας Ορθοπαιδικής Χειρουργικής & Τραυματολογίας (ΕΕΧΟΤ), της Ευρωπαϊκής Εταιρείας Αθλητικής Τραυματολογίας, Χειρουργικής Γόνατος και Αρθροσκόπησης (ESSKA), των Ευρωπαίων Συνεργατών Αθλητιατρικής (ESSKA-ESMA) και του AO Foundation.',
 
   // Hospitals
   hospitalsLabel: 'Συνεργαζόμενα Νοσοκομεία',
-  hospitalsHeading: 'Χειρουργεία στα κορυφαία ιδιωτικά νοσοκομεία της Αθήνας',
-  hospitalsDesc:
-    'Ο Dr. Μπέκας διατηρεί χειρουργικά προνόμια σε δύο από τα πιο αξιόπιστα ιδιωτικά νοσοκομεία της Αθήνας, εξασφαλίζοντας συνεχή υψηλού επιπέδου φροντίδα από τη διάγνωση έως την αποκατάσταση.',
-  hospitalBioclinicDesc: 'Ιδιωτικό ιατρείο & εξωτερικές ιατρικές συμβουλές',
-  hospitalYgeiaDesc: 'Ορθοπαιδικές επεμβάσεις & μονάδα τραύματος',
+  hospitalsHeading: 'Ο Δρ. Κυριάκος Μπέκας συνεργάζεται με κορυφαία ιδιωτικά νοσοκομεία της χώρας.',
+  hospitalBioclinicDesc: 'Ιδιωτικό ιατρείο, βιολογικές θεραπείες και ορθοπαιδικές επεμβάσεις',
+  hospitalEurokliniDesc: 'Εξωτερικός συνεργάτης και ορθοπαιδικές επεμβάσεις',
+  hospitalYgeiaDesc: 'Εξωτερικός συνεργάτης και ορθοπαιδικές επεμβάσεις',
 
   // Expertise
   expertiseLabel: 'Τομείς Εξειδίκευσης',
@@ -182,15 +194,18 @@ export const el: Translations = {
   expertiseS2Title: 'Αρθροσκοπική Χειρουργική',
   expertiseS2Desc:
     'Ελάχιστα επεμβατικές αρθροσκοπικές επεμβάσεις ώμου και γόνατος — αποκατάσταση ΠΧΣ, επισκευή στροφικού πετάλου και χειρουργική μηνίσκου.',
-  expertiseS3Title: 'Αρθροπλαστική Ισχίου & Γόνατος',
+  expertiseS3Title: 'Επανορθωτική Χειρουργική Ισχίου & Γόνατος',
   expertiseS3Desc:
     'Ολική και μερική αρθροπλαστική για αρθρίτιδα ισχίου και γόνατος, με σύγχρονα εμφυτεύματα και πρωτόκολλα ταχείας αποκατάστασης.',
-  expertiseS4Title: 'Βιολογικές Θεραπείες',
+  expertiseS4Title: 'Οστεοσύνθεση Καταγμάτων & Ορθοπαιδικό Τραύμα',
   expertiseS4Desc:
-    'Αναγεννητικές θεραπείες αιχμής — PRP, κυτταροθεραπεία και βιολογική ενίσχυση — ενσωματωμένες σε εξατομικευμένα πλάνα αποκατάστασης.',
-  expertiseS5Title: 'Κατάγματα & Ορθοπαιδικό Τραύμα',
-  expertiseS5Desc:
     'Χειρουργική και συντηρητική αντιμετώπιση οξέων καταγμάτων και σύνθετων ορθοπαιδικών τραυμάτων — από απλές κακώσεις έως πολυκερματισμένα κατάγματα.',
+  expertiseS5Title: 'Μεταβολικά Νοσήματα Οστών – Οστεοπόρωση',
+  expertiseS5Desc:
+    'Διάγνωση και αντιμετώπιση μεταβολικών παθήσεων των οστών, συμπεριλαμβανομένης της οστεοπόρωσης, με εξατομικευμένα θεραπευτικά πρωτόκολλα βασισμένα στη μέτρηση οστικής πυκνότητας.',
+  expertiseS6Title: 'Βιολογικές Θεραπείες',
+  expertiseS6Desc:
+    'Αναγεννητικές θεραπείες αιχμής — PRP, κυτταροθεραπεία και βιολογική ενίσχυση — ενσωματωμένες σε εξατομικευμένα πλάνα αποκατάστασης.',
 
   // CareApproach
   careLabel: 'Φιλοσοφία Θεραπείας',
@@ -211,26 +226,26 @@ export const el: Translations = {
   // Timeline
   timelineLabel: 'Βιογραφικό',
   timelineHeading: 'Μια πορεία χτισμένη πάνω σε στέρεα θεμέλια',
-  tl1Title: 'Κλινικό Fellowship ON Foundation',
-  tl1Inst: 'Hirslanden SportClinic, Ζυρίχη',
+  tl1Title: 'ON Foundation Κλινικό Fellowship',
+  tl1Inst: 'Hirslanden SportClinic, Ζυρίχη, Ελβετία',
   tl1Desc:
-    'Ανταγωνιστικό διεθνές fellowship σε ένα από τα κορυφαία αθλητικο-ορθοπαιδικά κέντρα της Ευρώπης, με εξειδίκευση στην αρθροσκοπική και ανακατασκευαστική χειρουργική γόνατος και ώμου.',
-  tl2Title: 'MSc Μεταβολικών Παθήσεων Οστών',
-  tl2Inst: 'Εθνικό & Καποδιστριακό Πανεπιστήμιο Αθηνών',
+    'Ανταγωνιστικό διεθνές fellowship σε ένα από τα κορυφαία αθλητιατρικά κέντρα της Ευρώπης, με εξειδίκευση στην αρθροσκοπική χειρουργική γόνατος και ώμου.',
+  tl2Title: 'MSc Μεταβολικών Νοσημάτων Οστών',
+  tl2Inst: 'Ιατρική Σχολή, Εθνικό & Καποδιστριακό Πανεπιστήμιο Αθηνών',
   tl2Desc:
-    'Μεταπτυχιακό με εστίαση στον μεταβολισμό των οστών, την οστεοπόρωση και τον ρόλο της οστικής πυκνότητας στα χειρουργικά αποτελέσματα.',
+    'Μεταπτυχιακό με εστίαση στα μεταβολικά νοσήματα των οστών, την οστεοπόρωση και τον ρόλο της οστικής πυκνότητας στη χειρουργική θεραπεία.',
   tl3Title: 'Δίπλωμα FIFA Football Medicine',
   tl3Inst: 'FIFA Medical Network',
   tl3Desc:
-    'Πιστοποίηση του προγράμματος FIFA Football Medicine — μία από τις πιο αναγνωρισμένες διεθνείς ειδικεύσεις στην αθλητική ιατρική.',
+    'Πιστοποίηση του προγράμματος FIFA Football Medicine',
   tl4Title: 'Ειδικότητα Ορθοπαιδικής & Τραυματολογίας',
   tl4Inst: '401 ΓΣΝΑ · Γ. Γεννηματάς · Παίδων "Π. & Α. Κυριακού"',
   tl4Desc:
-    'Πλήρης ειδίκευση στην Ορθοπαιδική και Τραυματολογία σε τρία κορυφαία νοσοκομεία της Αθήνας, που κάλυψε ολόκληρο το φάσμα χειρουργικής και συντηρητικής αντιμετώπισης.',
+    'Πλήρης ειδίκευση σε κορυφαία νοσοκομεία της Αθήνας, καλύπτοντας όλο το φάσμα της Ορθοπαιδικής & Τραυματολογίας.',
   tl5Title: 'Δίπλωμα Ιατρικής',
-  tl5Inst: 'Στρατιωτική Σχολή Αξιωματικών Ιατρικής, Αθήνα',
+  tl5Inst: 'Στρατιωτική Σχολή Αξιωματικών Σωμάτων (ΣΣΑΣ) · Ιατρική Σχολή ΑΠΘ',
   tl5Desc:
-    'Αποφοίτηση από την Ιατρική Σχολή της Στρατιωτικής Ακαδημίας, με θεμέλια κλινικής αριστείας και επαγγελματικής πειθαρχίας.',
+    'Αποφοίτηση από την Ιατρική Σχολή ΑΠΘ και ορκωμοσία ως Ανθυπολοχαγός Υγειονομικού Ιατρός στη ΣΣΑΣ, με θεμέλια κλινικής αριστείας και επαγγελματικής πειθαρχίας.',
 
   // CallToAction
   ctaLabel: 'Ξεκινήστε',
@@ -253,28 +268,28 @@ export const el: Translations = {
   footerContactTitle: 'Επικοινωνία',
   footerS1: 'Αθλητικές Κακώσεις',
   footerS2: 'Αρθροσκοπική Χειρουργική',
-  footerS3: 'Αρθροπλαστική Ισχίου & Γόνατος',
+  footerS3: 'Επανορθωτική Χειρουργική Ισχίου & Γόνατος',
   footerS4: 'Βιολογικές Θεραπείες',
-  footerS5: 'Κατάγματα & Ορθοπαιδικό Τραύμα',
+  footerS5: 'Οστεοσύνθεση Καταγμάτων & Ορθοπαιδικό Τραύμα',
 }
 
 export const en: Translations = {
   // Navbar
   navHome: 'Home',
   navAbout: 'About',
-  navGallery: 'Gallery',
+  navHospitals: 'Hospitals',
   navExpertise: 'Expertise',
   navCredentials: 'Credentials',
-  navArticles: 'Articles',
+  navPublications: 'Publications',
   navContact: 'Contact',
   navBook: 'Book Consultation',
 
   // Hero
   heroSpecialty: 'Orthopedic Surgeon',
-  heroLine1: 'Precision',
-  heroLine2: 'in Orthopaedics',
+  heroLine1: '"Scientific, specialised care.',
+  heroLine2: 'Dedication to the patient"',
   heroTagline:
-    'Precision orthopaedic surgery for sports injuries and joint reconstruction. FIFA-certified. Serving elite athletes and everyday patients alike.',
+    '"Modern orthopaedic approach, innovative techniques centred on the patient"',
   heroCta: 'Book a Consultation',
   heroCtaExpertise: 'View Expertise',
   heroScroll: 'Scroll',
@@ -294,23 +309,31 @@ export const en: Translations = {
 
   // About
   aboutLabel: 'About',
-  aboutHeading: 'A decade of precision at the intersection of sport and surgery',
+  aboutHeading: 'Dr. Kyriakos Bekas — MD, MSc',
   aboutPara1:
-    'Dr. Kyriakos Bekas is an Orthopedic Surgeon specialising in sports injuries and joint reconstruction surgery. A graduate of the Military College of Officers Medical School (2015), he completed his residency across leading Athenian hospitals — including 401 ΓΣΝΑ and Γ. Γεννηματάς — and pursued advanced fellowship training at the renowned SportClinic Zurich Hirslanden in Switzerland.',
+    'Kyriakos Bekas is an Orthopaedic Surgeon specialising in sports injuries and joint reconstruction surgery.',
   aboutPara2:
-    "He holds a Master's degree in Metabolic Bone Diseases from the National and Kapodistrian University of Athens and is a certified physician of the FIFA Football Medicine programme. Dr. Bekas maintains a private practice at Bioclinic Athens and is an active member of ESSKA and AO Foundation.",
-  aboutCred1: 'M.D., Military College of Officers Medical School, Athens (2015)',
-  aboutCred2: 'MSc Metabolic Bone Diseases, National & Kapodistrian University of Athens',
-  aboutCred3: 'FIFA Diploma in Football Medicine — FIFA Medical Network',
-  aboutCred4: 'Member, ESSKA & AO Foundation',
+    'He graduated from the Medical Faculty of the Military School of Officers\' Corps in 2015 and specialised in Orthopaedic & Traumatology at leading hospitals — including 401 GSNA, GNA "G. Gennimatas" and the Children\'s Hospital "P. & A. Kyriakou" — and undertook fellowship training on scholarship at SportClinic Zurich Hirslanden in Switzerland.',
+  aboutPara3:
+    'He holds a Master\'s Degree in "Metabolic Bone Diseases" from the National and Kapodistrian University of Athens and is a certified physician of the FIFA Football Medicine programme.',
+  aboutPara4:
+    'He is an active member of international scientific organisations including ESSKA and AO Foundation.',
+  aboutPara5:
+    'Since 2026 he has served as Registrar at 401 GSNA and maintains a private practice at Bioclinic Athens. He treats musculoskeletal injuries, performs arthroscopic procedures (shoulder and knee), hip and knee arthroplasty, and applies modern biological therapies and personalised solutions tailored to each patient\'s needs and profile.',
+  aboutCred1: 'Medical Faculty, Military School of Officers\' Corps (SSAS), Thessaloniki, 2015',
+  aboutCred2: 'FIFA Diploma in Football Medicine, 2019',
+  aboutCred3: 'MSc "Metabolic Bone Diseases", Medical School NKUA, Athens, 2024',
+  aboutCred4:
+    'Active member of ΕΕΧΟΤ, ESSKA, ESSKA-ESMA, and AO Foundation.',
 
   // Hospitals
   hospitalsLabel: 'Collaborating Hospitals',
-  hospitalsHeading: "Practicing at Greece's leading private hospitals",
+  hospitalsHeading: 'Dr. Kyriakos Bekas collaborates with leading private hospitals in Greece.',
   hospitalsDesc:
-    "Dr. Bekas holds active operating privileges at two of Athens' most respected private institutions, ensuring patients receive consistent, high-standard care across consultation and surgery.",
-  hospitalBioclinicDesc: 'Private practice & outpatient consultations',
-  hospitalYgeiaDesc: 'Orthopaedic surgery & trauma unit',
+    "Dr. Bekas holds active operating privileges at leading private institutions, ensuring patients receive consistent, high-standard care across consultation and surgery.",
+  hospitalBioclinicDesc: 'Private practice, biological therapies and orthopaedic surgery',
+  hospitalEurokliniDesc: 'External collaborator and orthopaedic surgery',
+  hospitalYgeiaDesc: 'External collaborator and orthopaedic surgery',
 
   // Expertise
   expertiseLabel: 'Areas of Expertise',
@@ -321,15 +344,18 @@ export const en: Translations = {
   expertiseS2Title: 'Arthroscopic Surgery',
   expertiseS2Desc:
     'Minimally invasive arthroscopic procedures of the shoulder and knee, including ACL reconstruction, rotator cuff repair, and meniscal surgery.',
-  expertiseS3Title: 'Hip & Knee Arthroplasty',
+  expertiseS3Title: 'Reconstructive Hip & Knee Surgery',
   expertiseS3Desc:
     'Total and partial joint replacement surgery for hip and knee arthritis, using the latest implant technologies and rapid recovery protocols.',
-  expertiseS4Title: 'Biological Therapies',
+  expertiseS4Title: 'Fracture Fixation & Orthopaedic Trauma',
   expertiseS4Desc:
-    'Advanced regenerative treatments — PRP, stem cell therapy, and biological augmentation — integrated into personalised recovery plans.',
-  expertiseS5Title: 'Trauma & Fracture Care',
-  expertiseS5Desc:
     'Surgical and non-surgical management of acute fractures and complex orthopaedic trauma, from simple breaks to multi-fragment injuries.',
+  expertiseS5Title: 'Metabolic Bone Diseases – Osteoporosis',
+  expertiseS5Desc:
+    'Diagnosis and management of metabolic bone conditions including osteoporosis, with personalised treatment protocols based on bone density assessment.',
+  expertiseS6Title: 'Biological Therapies',
+  expertiseS6Desc:
+    'Advanced regenerative treatments — PRP, stem cell therapy, and biological augmentation — integrated into personalised recovery plans.',
 
   // CareApproach
   careLabel: 'The Care Approach',
@@ -351,25 +377,25 @@ export const en: Translations = {
   timelineLabel: 'Credentials',
   timelineHeading: 'A career built on rigorous foundations',
   tl1Title: 'ON Foundation Clinical Fellowship',
-  tl1Inst: 'Hirslanden SportClinic, Zürich',
+  tl1Inst: 'Hirslanden SportClinic, Zürich, Switzerland',
   tl1Desc:
-    "Competitive international fellowship at one of Europe's foremost sports orthopaedic centres, advancing skills in arthroscopic and reconstructive knee and shoulder surgery.",
+    "Competitive international fellowship at one of Europe's foremost sports medicine centres, advancing skills in arthroscopic knee and shoulder surgery.",
   tl2Title: 'MSc Metabolic Bone Diseases',
-  tl2Inst: 'National & Kapodistrian University of Athens',
+  tl2Inst: 'Medical School, National & Kapodistrian University of Athens',
   tl2Desc:
-    'Postgraduate research degree focusing on bone metabolism, osteoporosis, and the role of bone mineral density in orthopaedic surgical outcomes.',
+    'Postgraduate degree focusing on metabolic bone diseases, osteoporosis, and the role of bone mineral density in surgical treatment.',
   tl3Title: 'FIFA Diploma in Football Medicine',
   tl3Inst: 'FIFA Medical Network',
   tl3Desc:
-    'Certified physician of the FIFA Football Medicine programme — one of the premier international qualifications in sports medicine for athletes of all levels.',
+    'Certified physician of the FIFA Football Medicine programme — one of the premier international qualifications in sports medicine.',
   tl4Title: 'Orthopaedic & Traumatology Residency',
   tl4Inst: '401 ΓΣΝΑ · Γ. Γεννηματάς · Παίδων "Π. & Α. Κυριακού"',
   tl4Desc:
-    "Full specialist training in orthopaedics and traumatology across three of Athens' leading hospitals, covering the full spectrum of surgical and conservative care.",
+    "Full specialist training in orthopaedics and traumatology across leading Athenian hospitals, covering the full spectrum of the discipline.",
   tl5Title: 'Doctor of Medicine',
-  tl5Inst: 'Military College of Officers Medical School, Athens',
+  tl5Inst: 'Military School of Officers\' Corps (SSAS) · Medical School, Aristotle University of Thessaloniki',
   tl5Desc:
-    "Graduated from the Medical School of the Hellenic Army's officer academy, establishing a foundation of discipline and clinical excellence.",
+    "Graduated from the Medical School of AUTh and commissioned as a Medical Officer at SSAS, establishing a foundation of clinical excellence and professional discipline.",
 
   // CallToAction
   ctaLabel: 'Get Started',
@@ -392,7 +418,7 @@ export const en: Translations = {
   footerContactTitle: 'Contact',
   footerS1: 'Sports Injuries',
   footerS2: 'Arthroscopic Surgery',
-  footerS3: 'Hip & Knee Arthroplasty',
+  footerS3: 'Reconstructive Hip & Knee Surgery',
   footerS4: 'Biological Therapies',
-  footerS5: 'Trauma & Fracture Care',
+  footerS5: 'Fracture Fixation & Orthopaedic Trauma',
 }

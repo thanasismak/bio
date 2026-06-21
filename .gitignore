@@ -7,5 +7,14 @@ node_modules/
 .next/
 out/
 
-# Old Vite artifacts
+# Build output — never commit
 dist/
+out/
+docs/
+
+# Public asset folders — uncomment once NEXT_PUBLIC_ASSETS_URL is set and R2 domain is live
+# public/assets/
+# public/brand/
+# public/hospitals/
+# public/profile/
+# public/societies/

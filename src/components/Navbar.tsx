@@ -6,15 +6,15 @@ import { Menu, X } from 'lucide-react'
 import { assetUrl } from '../utils/assets'
 import { useLanguage } from '../contexts/LanguageContext'
 
-type NavKey = 'navHome' | 'navAbout' | 'navGallery' | 'navExpertise' | 'navCredentials' | 'navArticles'
+type NavKey = 'navHome' | 'navAbout' | 'navHospitals' | 'navExpertise' | 'navCredentials' | 'navPublications'
 
-const linkKeys: { key: NavKey; href: string; external?: boolean }[] = [
-  { key: 'navHome',        href: '#hero'         },
-  { key: 'navAbout',       href: '#about'        },
-  { key: 'navGallery',     href: '#gallery'      },
-  { key: 'navExpertise',   href: '#expertise'    },
-  { key: 'navCredentials', href: '#credentials'  },
-  { key: 'navArticles',    href: '/articles', external: true },
+const linkKeys: { key: NavKey; href: string }[] = [
+  { key: 'navHome',         href: '#home'         },
+  { key: 'navAbout',        href: '#about'        },
+  { key: 'navHospitals',    href: '#hospitals'    },
+  { key: 'navExpertise',    href: '#expertise'    },
+  { key: 'navCredentials',  href: '#credentials'  },
+  { key: 'navPublications', href: '#publications' },
 ]
 
 export default function Navbar() {
@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#hero"
+          href="#home"
           className="h-full flex items-center overflow-hidden opacity-90 hover:opacity-100 transition-opacity duration-300"
         >
           <img
@@ -47,11 +47,10 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {linkKeys.map(({ key, href, external }) => (
+          {linkKeys.map(({ key, href }) => (
             <a
               key={href}
               href={href}
-              {...(external ? { target: '_self' } : {})}
               className="type-body-sm font-medium text-navy-950/70 hover:text-navy-950 transition-colors duration-200"
             >
               {t[key]}

@@ -1,18 +1,18 @@
 import type { NextConfig } from 'next'
 
-// '/bio' for GitHub Pages (thanasismak.github.io/bio).
-// Set to '' when deploying to Cloudflare Pages at root domain.
-const BASE_PATH = process.env.NODE_ENV === 'production' ? '/bio' : ''
+// DEPLOY_TARGET=github  → GitHub Pages  (basePath /bio, distDir docs/)
+// DEPLOY_TARGET unset   → Cloudflare Pages (root, out/)
+const isGitHub = process.env.DEPLOY_TARGET === 'github'
 
 const nextConfig: NextConfig = {
-  ...(process.env.NODE_ENV === 'production' && {
-    output: 'export',
+  output: 'export',
+  ...(isGitHub && {
+    basePath: '/bio',
     distDir: 'docs',
-    basePath: BASE_PATH,
   }),
-  // Expose basePath to client so assetUrl() can prefix image paths correctly
+  // Expose to client so assetUrl() can prefix paths on GitHub Pages
   env: {
-    NEXT_PUBLIC_BASE_PATH: BASE_PATH,
+    NEXT_PUBLIC_BASE_PATH: isGitHub ? '/bio' : '',
   },
   images: { unoptimized: true },
   eslint: { ignoreDuringBuilds: true },

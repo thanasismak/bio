@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
-import { Award, Trophy, Users, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { assetUrl } from '../utils/assets'
 import { useLanguage } from '../contexts/LanguageContext'
 
@@ -21,14 +21,7 @@ export default function DoctorBio() {
   const rightOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
   const rightScale   = useTransform(scrollYProgress, [0, 0.55], [1, 1.05])
 
-  const floatOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0])
-  const cueOpacity   = useTransform(scrollYProgress, [0, 0.12], [1, 0])
-
-  const floatingCards = [
-    { icon: Award,  value: '10+',  label: t.heroYearsExp, pos: '-left-12 top-10',    floatY: -7, delay: 0,   enterX: -20 },
-    { icon: Trophy, value: 'FIFA', label: t.heroFifa,     pos: '-right-8 top-1/3',   floatY: -9, delay: 0.2, enterX:  20 },
-    { icon: Users,  value: '4.9★', label: t.heroRating,   pos: '-left-10 bottom-20', floatY: -6, delay: 0.4, enterX: -20 },
-  ]
+  const cueOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0])
 
   return (
     <section ref={ref} id="home" className="relative min-h-screen flex items-center overflow-hidden bg-surface">
@@ -89,9 +82,9 @@ export default function DoctorBio() {
                 initial={reduced ? false : { opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.95, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                className="type-h1 text-navy-950"
+                className="type-h2 text-navy-950"
               >
-                <em className="italic">{t.heroLine1}</em>
+                {t.heroLine1}
                 <br />
                 <span className="text-navy-950/90">{t.heroLine2}</span>
               </motion.h1>
@@ -164,7 +157,7 @@ export default function DoctorBio() {
                   className="absolute inset-0"
                 >
                   <img
-                    src={assetUrl('/profile/hero.jpeg')}
+                    src={assetUrl('/profile/dbekas-image.png')}
                     alt="Dr. Kyriakos Bekas"
                     className="w-full h-full object-cover object-top"
                   />
@@ -186,42 +179,6 @@ export default function DoctorBio() {
                 </motion.div>
               </motion.div>
 
-              <motion.div
-                style={reduced ? {} : { opacity: floatOpacity }}
-                className="absolute inset-0 pointer-events-none"
-              >
-                {floatingCards.map(({ icon: Icon, value, label, pos, floatY, delay: d, enterX }) => (
-                  <motion.div
-                    key={label}
-                    initial={reduced ? false : { opacity: 0, x: enterX, scale: 0.88 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ duration: 0.65, delay: 1.05 + d, ease: [0.22, 1, 0.36, 1] }}
-                    className={`absolute ${pos} hidden sm:block`}
-                  >
-                    <motion.div
-                      animate={reduced ? {} : {
-                        y: [0, floatY, 0],
-                        boxShadow: [
-                          '0 8px 32px rgba(0,0,0,0.35)',
-                          '0 8px 32px rgba(45,212,191,0.10)',
-                          '0 8px 32px rgba(0,0,0,0.35)',
-                        ],
-                      }}
-                      transition={{ duration: 3.5 + d * 0.6, repeat: Infinity, ease: 'easeInOut', delay: d * 0.4 }}
-                      className="flex items-center gap-2 px-3 py-2 rounded-xl border border-white/[0.08]"
-                      style={{ background: 'rgba(15,22,41,0.85)', backdropFilter: 'blur(16px)' }}
-                    >
-                      <div className="w-6 h-6 rounded-lg bg-teal-400/[0.12] flex items-center justify-center shrink-0">
-                        <Icon className="w-3 h-3 text-teal-400" strokeWidth={1.5} />
-                      </div>
-                      <div>
-                        <p className="font-sans text-sm font-bold text-white leading-none">{value}</p>
-                        <p className="font-sans text-[10px] text-white/60 mt-0.5 whitespace-nowrap">{label}</p>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>

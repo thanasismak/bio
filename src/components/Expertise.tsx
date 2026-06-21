@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { Dumbbell, ScanSearch, Bone, FlaskConical, Bandage } from 'lucide-react'
+import { Dumbbell, ScanSearch, Bone, FlaskConical, Bandage, Activity } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
@@ -25,8 +25,9 @@ export default function Expertise() {
     { icon: Dumbbell,     title: t.expertiseS1Title, description: t.expertiseS1Desc },
     { icon: ScanSearch,   title: t.expertiseS2Title, description: t.expertiseS2Desc },
     { icon: Bone,         title: t.expertiseS3Title, description: t.expertiseS3Desc },
-    { icon: FlaskConical, title: t.expertiseS4Title, description: t.expertiseS4Desc },
-    { icon: Bandage,      title: t.expertiseS5Title, description: t.expertiseS5Desc },
+    { icon: Bandage,      title: t.expertiseS4Title, description: t.expertiseS4Desc },
+    { icon: Activity,     title: t.expertiseS5Title, description: t.expertiseS5Desc },
+    { icon: FlaskConical, title: t.expertiseS6Title, description: t.expertiseS6Desc },
   ]
 
   return (

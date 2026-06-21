@@ -10,6 +10,7 @@ import Hospitals from './components/Hospitals'
 import Expertise from './components/Expertise'
 import CareApproach from './components/CareApproach'
 import Timeline from './components/Timeline'
+import Publications from './components/Publications'
 import CallToAction from './components/CallToAction'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
@@ -35,6 +36,7 @@ const SECTION_MAP: Record<SectionKey, ComponentType> = {
   Expertise,
   CareApproach,
   Timeline,
+  Publications,
   CallToAction,
 }
 

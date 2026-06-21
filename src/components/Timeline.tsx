@@ -26,11 +26,11 @@ export default function Timeline() {
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.06, 0.97])
 
   const items: TimelineItem[] = [
-    { year: '2025',      icon: Award,        title: t.tl1Title, institution: t.tl1Inst, description: t.tl1Desc, side: 'left' },
-    { year: '2022',      icon: BookOpen,     title: t.tl2Title, institution: t.tl2Inst, description: t.tl2Desc, side: 'right' },
-    { year: '2019',      icon: Trophy,       title: t.tl3Title, institution: t.tl3Inst, description: t.tl3Desc, side: 'left' },
-    { year: '2015–2026', icon: Building2,    title: t.tl4Title, institution: t.tl4Inst, description: t.tl4Desc, side: 'right' },
-    { year: '2015',      icon: GraduationCap, title: t.tl5Title, institution: t.tl5Inst, description: t.tl5Desc, side: 'left' },
+    { year: '2019 – 2026', icon: Building2,     title: t.tl4Title, institution: t.tl4Inst, description: t.tl4Desc, side: 'left' },
+    { year: '2025',        icon: Award,         title: t.tl1Title, institution: t.tl1Inst, description: t.tl1Desc, side: 'right' },
+    { year: '2024',        icon: BookOpen,      title: t.tl2Title, institution: t.tl2Inst, description: t.tl2Desc, side: 'left' },
+    { year: '2019',        icon: Trophy,        title: t.tl3Title, institution: t.tl3Inst, description: t.tl3Desc, side: 'right' },
+    { year: '2015',        icon: GraduationCap, title: t.tl5Title, institution: t.tl5Inst, description: t.tl5Desc, side: 'left' },
   ]
 
   return (

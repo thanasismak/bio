@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:github": "DEPLOY_TARGET=github next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -20,7 +21,7 @@
     "@types/node": "^20",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "tailwindcss": "^4.0.0",
+"tailwindcss": "^4.0.0",
     "typescript": "~5.7.2"
   }
 }

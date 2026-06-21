@@ -13,6 +13,7 @@ export default function About() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-30px', '60px'])
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.06, 0.97])
 
+  const paragraphs  = [t.aboutPara1, t.aboutPara2, t.aboutPara3, t.aboutPara4, t.aboutPara5]
   const credentials = [t.aboutCred1, t.aboutCred2, t.aboutCred3, t.aboutCred4]
 
   return (
@@ -62,12 +63,12 @@ export default function About() {
             {/* Photo card */}
             <div
               className="relative rounded-3xl overflow-hidden border border-navy-950/[0.10] mx-auto max-w-sm lg:max-w-none"
-              style={{ aspectRatio: '4/5' }}
+              style={{ aspectRatio: '4/3' }}
             >
               <img
-                src={assetUrl('/profile/hero.jpeg')}
-                alt="Dr. Kyriakos Bekas"
-                className="absolute inset-0 w-full h-full object-cover object-top"
+                src={assetUrl('/assets/citieffe-implants-workshop.jpg')}
+                alt="Citieffe Implants Workshop — Dr. Kyriakos Bekas"
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
               <div
                 className="absolute inset-0"
@@ -99,8 +100,9 @@ export default function About() {
                 <span className="type-eyebrow text-teal-400">{t.aboutLabel}</span>
               </div>
               <h2 className="type-h2 text-navy-950 mb-6">{t.aboutHeading}</h2>
-              <p className="type-body text-navy-950/65 mb-4">{t.aboutPara1}</p>
-              <p className="type-body text-navy-950/65">{t.aboutPara2}</p>
+              {paragraphs.map((p, i) => (
+                <p key={i} className={`type-body text-navy-950/65 ${i < paragraphs.length - 1 ? 'mb-4' : ''}`}>{p}</p>
+              ))}
             </div>
 
             <div className="space-y-3 pt-2">
