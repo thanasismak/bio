@@ -12,9 +12,9 @@ dist/
 out/
 docs/
 
-# Public asset folders — served from Cloudflare R2, never committed to git
-public/assets/
-public/brand/
-public/hospitals/
-public/profile/
-public/societies/
+# Public asset folders — uncomment when R2 custom domain is live
+# public/assets/
+# public/brand/
+# public/hospitals/
+# public/profile/
+# public/societies/
