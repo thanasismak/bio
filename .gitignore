@@ -10,7 +10,6 @@ out/
 # Build output — never commit
 dist/
 out/
-docs/
 
 # Public asset folders — uncomment when R2 custom domain is live
 # public/assets/
