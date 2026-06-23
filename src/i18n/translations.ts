@@ -49,7 +49,6 @@ export interface Translations {
   // Hospitals
   hospitalsLabel: string
   hospitalsHeading: string
-  hospitalsDesc: string
   hospitalBioclinicDesc: string
   hospitalEurokliniDesc: string
   hospitalYgeiaDesc: string
@@ -181,8 +180,6 @@ export const el: Translations = {
   // Hospitals
   hospitalsLabel: 'Συνεργαζόμενα Νοσοκομεία',
   hospitalsHeading: 'Ο Δρ. Κυριάκος Μπέκας συνεργάζεται με κορυφαία ιδιωτικά νοσοκομεία της χώρας.',
-  hospitalsDesc:
-    'Ο Δρ. Μπέκας διατηρεί ενεργά χειρουργικά δικαιώματα σε κορυφαίες ιδιωτικές κλινικές, εξασφαλίζοντας υψηλό επίπεδο φροντίδας τόσο στη διαγνωστική όσο και στη χειρουργική αντιμετώπιση.',
   hospitalBioclinicDesc: 'Ιδιωτικό ιατρείο, βιολογικές θεραπείες και ορθοπαιδικές επεμβάσεις',
   hospitalEurokliniDesc: 'Εξωτερικός συνεργάτης και ορθοπαιδικές επεμβάσεις',
   hospitalYgeiaDesc: 'Εξωτερικός συνεργάτης και ορθοπαιδικές επεμβάσεις',
@@ -331,8 +328,6 @@ export const en: Translations = {
   // Hospitals
   hospitalsLabel: 'Collaborating Hospitals',
   hospitalsHeading: 'Dr. Kyriakos Bekas collaborates with leading private hospitals in Greece.',
-  hospitalsDesc:
-    "Dr. Bekas holds active operating privileges at leading private institutions, ensuring patients receive consistent, high-standard care across consultation and surgery.",
   hospitalBioclinicDesc: 'Private practice, biological therapies and orthopaedic surgery',
   hospitalEurokliniDesc: 'External collaborator and orthopaedic surgery',
   hospitalYgeiaDesc: 'External collaborator and orthopaedic surgery',

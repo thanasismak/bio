@@ -12,9 +12,9 @@ dist/
 out/
 docs/
 
-# Public asset folders — uncomment once NEXT_PUBLIC_ASSETS_URL is set and R2 domain is live
-# public/assets/
-# public/brand/
-# public/hospitals/
-# public/profile/
-# public/societies/
+# Public asset folders — served from Cloudflare R2, never committed to git
+public/assets/
+public/brand/
+public/hospitals/
+public/profile/
+public/societies/

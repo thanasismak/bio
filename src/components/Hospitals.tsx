@@ -14,7 +14,7 @@ export default function Hospitals() {
       description: t.hospitalBioclinicDesc,
     },
     {
-      src: assetUrl('/hospitals/euroklini.jpg'),
+      src: assetUrl('/hospitals/euroclinic.jpg'),
       alt: 'Ευρωκλινική',
       name: 'Ευρωκλινική',
       description: t.hospitalEurokliniDesc,
@@ -46,8 +46,6 @@ export default function Hospitals() {
             </div>
 
             <h2 className="type-h2 text-navy-950 mb-6">{t.hospitalsHeading}</h2>
-
-            <p className="type-body text-navy-950/55 max-w-sm">{t.hospitalsDesc}</p>
 
             <div className="mt-10 h-px w-12 bg-teal-400/40" />
           </motion.div>
