@@ -40,7 +40,6 @@
     "node_modules",
     "dist",
     "docs",
-    "functions",
-    "functions-disabled"
+    "functions"
   ]
 }
