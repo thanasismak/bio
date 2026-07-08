@@ -60,19 +60,19 @@ export default function Navbar() {
 
         {/* Desktop actions */}
         <div className="hidden lg:flex items-center gap-3">
-          <button
-            onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
-            className="font-sans text-xs font-semibold tracking-widest text-navy-950/50 hover:text-navy-950 transition-colors duration-200 cursor-pointer px-2 py-1"
-          >
-            {lang === 'el' ? 'EN' : 'ΕΛ'}
-          </button>
-
           <a
             href="#contact"
             className="px-6 py-2.5 bg-primary text-navy-950 text-sm font-sans font-semibold rounded-full hover:bg-teal-300 transition-colors duration-200"
           >
             {t.navBook}
           </a>
+
+          <button
+            onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
+            className="font-sans text-xs font-semibold tracking-widest text-navy-950/60 hover:text-navy-950 hover:border-navy-950/40 transition-colors duration-200 cursor-pointer px-3 py-2 rounded-full border border-navy-950/20"
+          >
+            {lang === 'el' ? 'EN' : 'ΕΛ'}
+          </button>
         </div>
 
         {/* Mobile burger */}
@@ -106,12 +106,6 @@ export default function Navbar() {
             ))}
 
             <div className="flex items-center gap-4 pt-2 border-t border-navy-900/10">
-              <button
-                onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
-                className="font-sans text-xs font-semibold tracking-widest text-navy-950/50 cursor-pointer"
-              >
-                {lang === 'el' ? 'EN' : 'ΕΛ'}
-              </button>
               <a
                 href="#contact"
                 onClick={close}
@@ -119,6 +113,12 @@ export default function Navbar() {
               >
                 {t.navBook}
               </a>
+              <button
+                onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
+                className="font-sans text-xs font-semibold tracking-widest text-navy-950/60 cursor-pointer px-3 py-2 rounded-full border border-navy-950/20"
+              >
+                {lang === 'el' ? 'EN' : 'ΕΛ'}
+              </button>
             </div>
           </div>
         </motion.div>

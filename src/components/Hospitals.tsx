@@ -20,10 +20,10 @@ export default function Hospitals() {
       description: t.hospitalEurokliniDesc,
     },
     {
-      src: assetUrl('/hospitals/ygeia.jpg'),
-      alt: 'Νοσοκομείο ΥΓΕΙΑ',
-      name: 'Νοσοκομείο «ΥΓΕΙΑ»',
-      description: t.hospitalYgeiaDesc,
+      src: assetUrl('/hospitals/rea.png'),
+      alt: 'Νοσοκομείο ΡΕΑ',
+      name: 'Νοσοκομείο «ΡΕΑ»',
+      description: t.hospitalReaDesc,
     },
   ]
 

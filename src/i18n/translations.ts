@@ -51,7 +51,7 @@ export interface Translations {
   hospitalsHeading: string
   hospitalBioclinicDesc: string
   hospitalEurokliniDesc: string
-  hospitalYgeiaDesc: string
+  hospitalReaDesc: string
 
   // Expertise
   expertiseLabel: string
@@ -68,18 +68,6 @@ export interface Translations {
   expertiseS5Desc: string
   expertiseS6Title: string
   expertiseS6Desc: string
-
-  // CareApproach
-  careLabel: string
-  careHeading: string
-  careP1Title: string
-  careP1Desc: string
-  careP2Title: string
-  careP2Desc: string
-  careP3Title: string
-  careP3Desc: string
-  careP4Title: string
-  careP4Desc: string
 
   // Timeline
   timelineLabel: string
@@ -182,7 +170,7 @@ export const el: Translations = {
   hospitalsHeading: 'Ο Δρ. Κυριάκος Μπέκας συνεργάζεται με κορυφαία ιδιωτικά νοσοκομεία της χώρας.',
   hospitalBioclinicDesc: 'Ιδιωτικό ιατρείο, βιολογικές θεραπείες και ορθοπαιδικές επεμβάσεις',
   hospitalEurokliniDesc: 'Εξωτερικός συνεργάτης και ορθοπαιδικές επεμβάσεις',
-  hospitalYgeiaDesc: 'Εξωτερικός συνεργάτης και ορθοπαιδικές επεμβάσεις',
+  hospitalReaDesc: 'Εξωτερικός συνεργάτης και ορθοπαιδικές επεμβάσεις',
 
   // Expertise
   expertiseLabel: 'Τομείς Εξειδίκευσης',
@@ -205,22 +193,6 @@ export const el: Translations = {
   expertiseS6Title: 'Βιολογικές Θεραπείες',
   expertiseS6Desc:
     'Αναγεννητικές θεραπείες αιχμής — PRP, κυτταροθεραπεία και βιολογική ενίσχυση — ενσωματωμένες σε εξατομικευμένα πλάνα αποκατάστασης.',
-
-  // CareApproach
-  careLabel: 'Φιλοσοφία Θεραπείας',
-  careHeading: 'Χειρουργική καθοδηγούμενη από αρχές, όχι πρωτόκολλα',
-  careP1Title: 'Ο Ασθενής στο Κέντρο',
-  careP1Desc:
-    'Κάθε ασθενής λαμβάνει εξατομικευμένο πλάνο θεραπείας — διαμορφωμένο γύρω από τη διάγνωση, τον τρόπο ζωής και τους προσωπικούς του στόχους, χωρίς τυποποιημένα πρωτόκολλα.',
-  careP2Title: 'Διαγνωστική Ακρίβεια',
-  careP2Desc:
-    'Σύγχρονη απεικόνιση, αρθροσκοπική αξιολόγηση και συστηματική κλινική εξέταση εξασφαλίζουν ακριβή διάγνωση πριν από κάθε παρέμβαση.',
-  careP3Title: 'Πρωτόκολλα για Αθλητές',
-  careP3Desc:
-    'Εξειδικευμένα χειρουργικά και αποκαταστατικά πρωτόκολλα για αθλητές κάθε επιπέδου, με στόχο την ασφαλή και πλήρη επιστροφή στον αθλητισμό.',
-  careP4Title: 'Αναγεννητική Καινοτομία',
-  careP4Desc:
-    'Τεχνολογίες αιχμής — PRP, κυτταρική ενίσχυση και βιολογικά υλικά — εφαρμόζονται εκεί που η επιστημονική τεκμηρίωση το υποστηρίζει, επιταχύνοντας την ανάρρωση.',
 
   // Timeline
   timelineLabel: 'Βιογραφικό',
@@ -330,7 +302,7 @@ export const en: Translations = {
   hospitalsHeading: 'Dr. Kyriakos Bekas collaborates with leading private hospitals in Greece.',
   hospitalBioclinicDesc: 'Private practice, biological therapies and orthopaedic surgery',
   hospitalEurokliniDesc: 'External collaborator and orthopaedic surgery',
-  hospitalYgeiaDesc: 'External collaborator and orthopaedic surgery',
+  hospitalReaDesc: 'External collaborator and orthopaedic surgery',
 
   // Expertise
   expertiseLabel: 'Areas of Expertise',
@@ -353,22 +325,6 @@ export const en: Translations = {
   expertiseS6Title: 'Biological Therapies',
   expertiseS6Desc:
     'Advanced regenerative treatments — PRP, stem cell therapy, and biological augmentation — integrated into personalised recovery plans.',
-
-  // CareApproach
-  careLabel: 'The Care Approach',
-  careHeading: 'Surgery guided by principles, not protocols',
-  careP1Title: 'Patient-Centred Care',
-  careP1Desc:
-    'Each patient receives a personalised treatment plan shaped around their specific condition, lifestyle, and activity goals — not a one-size-fits-all protocol.',
-  careP2Title: 'Diagnostic Precision',
-  careP2Desc:
-    'Advanced imaging, arthroscopic assessment, and a rigorous clinical evaluation process ensure an accurate diagnosis before any intervention is considered.',
-  careP3Title: 'Athlete-Focused Protocols',
-  careP3Desc:
-    'Dedicated surgical and rehabilitation pathways for athletes of all levels — from recreational runners to professional competitors — prioritising safe, full return to sport.',
-  careP4Title: 'Regenerative Innovation',
-  careP4Desc:
-    'Cutting-edge biological therapies — PRP, stem cell augmentation, and advanced materials — are integrated where evidence supports them, accelerating recovery outcomes.',
 
   // Timeline
   timelineLabel: 'Credentials',

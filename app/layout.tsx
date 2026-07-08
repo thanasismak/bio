@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Providers } from '../src/components/Providers'
+import { assetUrl } from '../src/utils/assets'
 import '../src/index.css'
 
 // ─── Structured data (JSON-LD) ────────────────────────────────────────────────
@@ -115,7 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="el">
       <head>
-        <link rel="icon" type="image/png" href="/brand/logo-vector.png" />
+        <link rel="icon" type="image/png" href={assetUrl('/brand/favicon.png')} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
